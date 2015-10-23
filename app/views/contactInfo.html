@@ -1,0 +1,12 @@
+<h3>Director: {{contactInfo.director}}</h3>
+</br>
+<h4>Administrative/Support Staff</h4>
+<li ng-repeat="staff in contactInfo.staff">
+  <ul>{{staff.point}}</ul>
+</li>
+</br>
+<h4>Location:</h4>
+<div ng-repeat="location in contactInfo.location">
+  <p>{{location.point}}</p>
+</div>
+</br></br>
