@@ -1,6 +1,25 @@
-<h2>Research Scope</h2>
+<div id="homeContainer">
+    <div class="xuInfoCard">
+        <div class="xuImg">
+            <img src="../images/haiping_xu.jpg">
+        </div>
+        <div class="name">Dr. Haiping Xu</div>
+        <div class="dept">
+            <h4>Department:</h4>
+            <p>Computer & Information Sciences</p>
+        </div>
+        <div class="univ">
+            <h4>University:</h4>
+            <p>University of Massachusetts Dartmouth</p>
+        </div>
+    </div>
+    
 
-<p>{{home.mainPara}}</p>
-<li ng-repeat="subPara in home.subParas">
-  <ul ng-bind-html="subPara.point"></ul>
-</li>
+    <div id="researchScope">
+        <h2>Research Scope</h2>
+        <p>{{home.mainPara}}</p>
+        <li ng-repeat="subPara in home.subParas">
+          <ul ng-bind-html="subPara.point"></ul>
+        </li>
+    </div>
+</div>

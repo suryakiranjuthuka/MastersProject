@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -21,44 +22,57 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
+<!--
+    <ul>
+      <li class="active"><a ng-href="#/">Home</a></li>
+      <li><a ng-href="#/publications">Publications</a></li>
+      <li><a ng-href="#/gradStudents">Graduate Students</a></li>
+      <li><a ng-href="#/grantActivities">Grant Activities</a></li>
+      <li><a ng-href="#/contactInfo">Contact Info</a></li>
+    </ul>
+-->
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
 
-            <a class="navbar-brand" href="#/">CSEL</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/publications">Publications</a></li>
-              <li><a ng-href="#/gradStudents">Graduate Students</a></li>
-              <li><a ng-href="#/grantActivities">Grant Activities</a></li>
-              <li><a ng-href="#/contactInfo">Contact Info</a></li>
-            </ul>
-          </div>
+      <header>
+        <div id="headerRow1">
+            <div class="container">
+                <div class ="info">
+                    Computer & Information Sciences, UMass Dartmouth
+                </div>
+                <div id="login">
+                    <md-button>login</md-button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-
-    <div class="container">
+        <div id="headerRow2">
+            <div id="title">
+                Concurrent Software Engineering Laboratory
+            </div>
+            <div id="directorInfo">
+                Director : Dr. Haiping Xu
+            </div>
+        </div>
+          
+    <div ng-controller="AppCtrl">
+        <nav id="mainNav">
+              <md-tabs id="mainTabs">
+                <md-tab id="home" label="Home"></md-tab>
+                <md-tab id="publications" label="Publications"></md-tab>
+                <md-tab id="gradStudents" label="Graduate Students"></md-tab>
+                <md-tab id="grantActivities" label="Grant Activities"></md-tab>
+                <md-tab id="contactInfo" label="Contact Info"></md-tab>
+            </md-tabs>
+        </nav>
+</div>
+        <div class="blankSpace"></div>
+      </header>
+    <div id="viewContainer">
     <div ng-view=""></div>
     </div>
-
-    <div class="footer">
-      <div class="container">
-        <p>Developed with <span class="glyphicon glyphicon-heart"></span>  { Surya Kiran Juthuka }</p>
-      </div>
-    </div>
+      
+    <footer id="footer">
+        2015 © CSEL, All rights reserved   
+    </footer>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -80,9 +94,13 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-
+      
+    
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/services.js"></script>

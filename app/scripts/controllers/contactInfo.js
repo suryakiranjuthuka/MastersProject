@@ -1,4 +1,7 @@
 'use strict';
+        
+//// Set the Current Page to Active Nav
+//$( "#mainTabs" ).attr( "md-selected", 4 );
 
 /**
  * @ngdoc function
@@ -16,8 +19,7 @@ angular.module('cselApp')
       contactInfo.staff = data.contactInfo.staff;
       contactInfo.location = data.contactInfo.location;
     });
-    
-    // Set the Current Page to Active Nav
-    $('.nav li').removeClass('active');
-    $('.nav li:nth-child(5)').addClass('active');
+
+ 
+
   });

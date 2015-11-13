@@ -16,7 +16,4 @@ angular.module('cselApp')
       home.subParas = data.home.subParas;
     });
     
-    // Set the Current Page to Active Nav
-    $('.nav li').removeClass('active');
-    $('.nav li:nth-child(1)').addClass('active');
   });

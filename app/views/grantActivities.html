@@ -1,7 +1,7 @@
-<h2>Funding and Grant Activities</h2>
-</br>
-<li ng-repeat="grantActivity in grantActivities.data">
-  <ul ng-bind-html="grantActivity.point"></ul>
-</li>
-
-</br></br>
+<div id="grantActivitiesContainer">
+    <h2>Funding and Grant Activities</h2>
+    </br>
+    <div ng-repeat="grantActivity in grantActivities.data">
+      <li class="grantPara" ng-bind-html="grantActivity.point"></li>
+    </div>
+</div>
