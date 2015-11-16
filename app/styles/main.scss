@@ -9,8 +9,11 @@
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-}
+//@media screen and (min-width: 1100px) { 
+//}
+
+$mobile: "only screen and (max-width: 449px)";
+$responsive: "only screen and (max-width: 900px)";
 
 @import 'reset';
 
@@ -117,6 +120,10 @@ b{
 .fixed{
     position: fixed;
     top: 50px;
+        @media #{$responsive} {
+            position: relative;
+            top: 0px;
+        }
 }
 
 
@@ -167,12 +174,21 @@ header{
            flex: 1 auto; 
             font-size: 30px;
             color: $primary-color-text;
+                @media #{$responsive} {
+                    font-size: 24px;
+                }
+                @media #{$mobile} {
+                  font-size: 20px;
+                }
         }
 
         #directorInfo{
             flex: 0 200px;
             color: $primary-color-light;
             font-size: 14px;
+                @media #{$mobile} {
+                    text-align: right;
+                }
         }
 
     }
@@ -232,6 +248,10 @@ footer{
         margin: 0 auto;
         padding: 30px 50px;
         box-sizing: border-box;
+        transition: all .1s;
+        @media #{$mobile} {
+          padding: 30px 15px;
+        }
     }
 }
 
@@ -239,7 +259,9 @@ footer{
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    
+        @media #{$responsive} {
+          flex-flow: row wrap;
+        }
     
     .xuInfoCard{
         flex: 1 0 50px;
@@ -250,6 +272,10 @@ footer{
         height: 100%;
         @extend .boxShadow;
         border-top: 3px solid $accent-color;
+            @media #{$responsive} {
+              flex: 1 100%;
+                margin-bottom: 40px;
+            }
         
         .xuImg{
             background-color: $primary-color;
@@ -314,6 +340,11 @@ footer{
         @extend .boxShadow;
         background-color: white;
         color: $primary-text-color;
+            @media #{$responsive} {
+                flex: 1 100%;
+                margin-left: 0px;
+                padding: 20px 30px;
+            }
         
         h2{
             color: $primary-color;
@@ -337,6 +368,7 @@ footer{
     }
 }
 
+//CONTACT INFO PAGE ******************
 #contactInfoContainer{
     margin-bottom: 30px !important;
     
@@ -349,6 +381,11 @@ footer{
         background-color: white;
         color: $primary-text-color;
         font-size: 16px;
+            @media #{$responsive} {
+                flex: 1 100%;
+                margin-bottom: 40px;
+                margin-left: 0px;
+            }
         
         h2{
             color: $primary-color;
@@ -414,6 +451,7 @@ footer{
   }
 
 
+//GRANT ACTIVITIES PAGE **************
 #grantActivitiesContainer{
     margin-bottom: 40px !important;
     h2{
@@ -430,6 +468,9 @@ footer{
         padding: 25px 50px;
         margin-bottom: 20px;
         border-left: 3px solid $accent-color;
+            @media #{$mobile} {
+                padding: 25px 25px;
+            }
     }
 }
 
@@ -441,22 +482,32 @@ footer{
     flex-flow: row nowrap;
     justify-content: space-between;
     max-width: 1400px !important;
+        @media #{$responsive} {
+            flex-flow: row wrap;
+//            max-width: 100px !important;
+        }
     
     #sideNavContainer{
-//        padding: 0px 20px 20px;
         margin-right: 50px;
-//        padding-bottom: 30px;
         flex: 0 0 260px;
         font-size: 14px;
         height: 100%;
+            @media #{$responsive} {
+                margin-right: 0px;
+                flex: 1 100%;
+            }
+        
         
         #sideNav{
-//            position: fixed;
             @extend .boxShadow;
             background-color: white;
             width: auto;
-            transition: all 2s;
-            width: 260px;
+            transition: all .2s;
+            max-width: 260px;
+            margin-bottom: 70px;
+                @media #{$responsive} {
+                    max-width: 100%;
+                }
         }
         
         h4{
@@ -502,6 +553,9 @@ footer{
     
     #gradStudentsContent, #publicationsContent{
         flex: 4;
+            @media #{$responsive} {
+                flex: 1 100%;
+            }
         
         h2{
             color: $primary-color;
@@ -517,6 +571,9 @@ footer{
             background-color: #eee;
             padding: 1px 40px 40px;
             margin-bottom: 100px;
+                    @media #{$mobile} {
+                      padding: 1px 20px 40px;
+                    }
 
             h3{
                 color: $primary-color;
@@ -536,6 +593,9 @@ footer{
                 padding: 20px 30px;
                 margin-bottom: 15px;
                 border-left: 3px solid $accent-color;
+                    @media #{$mobile} {
+//                      padding: 20px 15px;
+                    }
             }
 
             .CPS{
