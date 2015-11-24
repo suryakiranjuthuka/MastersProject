@@ -2,47 +2,38 @@
 
 require_once 'init.php';
 
-
-
 //Get Records
 if (isset($_GET['page']) && isset($_GET['action'])) {
 
   /* ==========================================================================
-     Initilize all of the categories
+     Initilize all of the Home Content
      ========================================================================== */
-  if (($_GET['page'] == 'index') && ($_GET['action'] == 'getAllCategories')) {
-      //Search for All Categories
+  if (($_GET['page'] == 'home') && ($_GET['action'] == 'getHome')) {
+      //Search for home index
       $params = [
-        'index' => 'categories',
-        'type' => 'category',
-        'size' => 200,
-  //        'sort' => 'name:desc'
-    ];
-
+        'index' => 'home',
+        'size' => 200
+      ];
+      
       $results = $ES->search($params);
-      $allCategories = $results['hits']['hits'];
-      //    echo "<pre>",print_r($allCategories),"</pre>";
-
-      //proof of concept only, DO NOT render unbound data like this.
-      echo json_encode($allCategories);
+      $home = $results['hits']['hits'];
+      echo json_encode($home);
+      // echo "<pre>",print_r($home),"</pre>";
   }
   
   /* ==========================================================================
-     Initilize All Lists
+     Initilize All Publications
      ========================================================================== */
-  if (($_GET['page'] == 'list') && ($_GET['action'] == 'getAllLists')) {
-      //Search for All Lists
+  if (($_GET['page'] == 'publications') && ($_GET['action'] == 'getPublications')) {
+      //Search for publication index
       $params = [
-        'index' => 'lists',
-        'type' => 'list',
-        'size' => 200,
-  //        'sort' => 'name:desc'
-    ];
-
-      $results = $ES->search($params);
-      $allLists = $results['hits']['hits'];
+        'index' => 'publications',
+        'size' => 300
+      ];
       
-      echo json_encode($allLists);
+      $results = $ES->search($params);
+      $publications = $results['hits']['hits'];
+      echo json_encode($publications);
   }
   
   /* ==========================================================================
@@ -79,119 +70,62 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
 
       echo json_encode($allCategoryLexons);
   }
-}
-
-//Create/Update Records
-if (isset($_POST['page']) && isset($_POST['action'])) {
-
-  /* ==========================================================================
-     Create Lexon
-     ========================================================================== */
-  if (($_POST['page'] == 'category_lexons') && ($_POST['action'] == 'createLexon')) {
-      //Create a Lexon
+  
+  // DELETE PUBLICATIONS
+  if (($_GET['page'] == 'publications') && ($_GET['action'] == 'delete')) {
+      //Delete a publication
     $params = [
-        'index' => 'lexons',
-        'type' => $_POST['categoryId'],
-        'body' => [
-                    'in/ex' => 1,
-                    'lexon' => $_POST['lexonName'],
-                    'appliesTo' => 'title',
-                    'modified' => 'July 22nd',
-                    'type' => 'custom',
-                  ],
+        'index' => 'publications',
+        'type' => $_GET['type'],
+        'id' => $_GET['id']
     ];
-      $response = $ES->index($params);
-
-    //Get Created Lexon
+    $response = $ES->delete($params);
+    echo json_encode($response);
+  }
+  
+  
+    // CREATE PUBLICATIONS
+  if (($_GET['page'] == 'publications') && ($_GET['action'] == 'create')) {
+      //Create a Publication
     $params = [
-        'index' => 'lexons',
-        'type' => $_POST['categoryId'],
-        'id' => $response['_id'],
+      'index' => 'publications',
+      'type' => $_GET['type'],
+      'body' => [
+                  'point' => $_GET['formData']
+                ],
+    ];
+    $response = $ES->index($params);
+
+    //Get Created Publication
+    $params = [
+      'index' => 'publications',
+      'type' => $_GET['type'],
+      'id' => $response['_id'],
     ];
 
     // Get doc at /my_index/my_type/my_id
     $response1 = $ES->get($params);
-      echo json_encode($response1);
+    echo json_encode($response1);
   }
   
-  /* ==========================================================================
-     Create List
-     ========================================================================== */
-  if (($_POST['page'] == 'category_lists') && ($_POST['action'] == 'createList')) {
-    //Create a Lexon
-    
-    $listID = rand(40, 100);
-    
-    $params = [
-        'index' => 'lists',
-        'type' => 'list',
-        'id' => $listID,
-        'body' => [
-                    'name' => $_POST['listName'],
-                    'modified' => 'July 22nd',
-                    'type' => 'custom',
-                  ],
-    ];
-      $response = $ES->index($params);
-
-    //Get Created Lexon
-    $params = [
-        'index' => 'lists',
-        'type' => 'list',
-        'id' => $response['_id'],
-    ];
-
-    // Get doc at /my_index/my_type/my_id
-    $response1 = $ES->get($params);
-      echo json_encode($response1);
-  }
   
-  /* ==========================================================================
-     Save Search
-     ========================================================================== */
-  if (($_POST['page'] == 'category_lists') && ($_POST['action'] == 'saveSearch')) {
-    //Save Search to Kibana
-    $id = addslashes($_POST['id']);
-    $title = addslashes($_POST['title']);
-    $query = addslashes($_POST['query']);
+  
+  //Update Publications
+  if (($_GET['page'] == 'publications') && ($_GET['action'] == 'update')) {
+      //Update a Publication
     $params = [
-        'index' => '.kibana',
-        'type' => 'search',
-        'id' => $id,
-        'body' => [
-                    'title' => $title,
-                    'description' => '',
-                    'hits' => '0',
-                    'columns' => [
-                      '_source'
-                    ],
-                    'sort' => [
-                      'timestamp',
-                      'desc'
-                    ],
-                    'version' => 1,
-                    'kibanaSavedObjectMeta' => [
-                      'searchSourceJSON' => "{\"index\":\"audit\",\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}}},\"filter\":[],\"query\":{\"query_string\":{\"query\":\"". $query ."\",\"analyze_wildcard\":true}}}"
-                    ]
-                  ]
+      'index' => 'publications',
+      'type' => $_GET['type'],
+      'id' => $_GET['id'],
+      'body' => [
+                  'point' => $_GET['formData']
+                ],
     ];
-      $response = $ES->index($params);
-      echo "<pre>",print_r($response),"</pre>";
+    $response = $ES->index($params);
+    
+    echo json_encode($response);
   }
+
+  
   
 }
-
-
-$params = [
-  'index' => 'categories',
-  'type' => 'category',
-  'size' => 200,
-//        'sort' => 'name:desc'
-];
-
-$results = $ES->search($params);
-$allCategories = $results['hits']['hits'];
-//    echo "<pre>",print_r($allCategories),"</pre>";
-
-//proof of concept only, DO NOT render unbound data like this.
-echo json_encode($allCategories);

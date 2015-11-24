@@ -1,3 +1,4 @@
+
 'use strict';
         
 //// Set the Current Page to Active Nav
@@ -20,6 +21,5 @@ angular.module('cselApp')
       contactInfo.location = data.contactInfo.location;
     });
 
- 
 
   });
