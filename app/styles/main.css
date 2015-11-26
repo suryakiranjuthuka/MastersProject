@@ -44,6 +44,7 @@ footer, header, hgroup, menu, nav, section {
 /* line 31, ../../app/styles/_reset.scss */
 body {
   line-height: 1.4;
+  position: relative;
 }
 
 /* line 34, ../../app/styles/_reset.scss */
@@ -598,9 +599,9 @@ footer {
 }
 /* line 590, ../../app/styles/main.scss */
 #gradStudentsContainer #gradStudentsContent #GSSContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #GSSContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #GSSContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #GSSContainer .CPS, #gradStudentsContainer #gradStudentsContent #GSSContainer .umdCard, #gradStudentsContainer #gradStudentsContent #GSSContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #CPSContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #CPSContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #CPSContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #CPSContainer .CPS, #gradStudentsContainer #gradStudentsContent #CPSContainer .umdCard, #gradStudentsContainer #gradStudentsContent #CPSContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #GSCContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #GSCContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #GSCContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #GSCContainer .CPS, #gradStudentsContainer #gradStudentsContent #GSCContainer .umdCard, #gradStudentsContainer #gradStudentsContent #GSCContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #JPContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #JPContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #JPContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #JPContainer .CPS, #gradStudentsContainer #gradStudentsContent #JPContainer .umdCard, #gradStudentsContainer #gradStudentsContent #JPContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #CPContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #CPContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #CPContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #CPContainer .CPS, #gradStudentsContainer #gradStudentsContent #CPContainer .umdCard, #gradStudentsContainer #gradStudentsContent #CPContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #BContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #BContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #BContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #BContainer .CPS, #gradStudentsContainer #gradStudentsContent #BContainer .umdCard, #gradStudentsContainer #gradStudentsContent #BContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #BCContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #BCContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #BCContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #BCContainer .CPS, #gradStudentsContainer #gradStudentsContent #BCContainer .umdCard, #gradStudentsContainer #gradStudentsContent #BCContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #TRContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #TRContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #TRContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #TRContainer .CPS, #gradStudentsContainer #gradStudentsContent #TRContainer .umdCard, #gradStudentsContainer #gradStudentsContent #TRContainer .cardNoTitle, #gradStudentsContainer #gradStudentsContent #TPContainer .mastersThesis, #gradStudentsContainer #gradStudentsContent #TPContainer .mastersProject, #gradStudentsContainer #gradStudentsContent #TPContainer .phdDissertation, #gradStudentsContainer #gradStudentsContent #TPContainer .CPS, #gradStudentsContainer #gradStudentsContent #TPContainer .umdCard, #gradStudentsContainer #gradStudentsContent #TPContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #GSSContainer .mastersThesis, #gradStudentsContainer #publicationsContent #GSSContainer .mastersProject, #gradStudentsContainer #publicationsContent #GSSContainer .phdDissertation, #gradStudentsContainer #publicationsContent #GSSContainer .CPS, #gradStudentsContainer #publicationsContent #GSSContainer .umdCard, #gradStudentsContainer #publicationsContent #GSSContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #CPSContainer .mastersThesis, #gradStudentsContainer #publicationsContent #CPSContainer .mastersProject, #gradStudentsContainer #publicationsContent #CPSContainer .phdDissertation, #gradStudentsContainer #publicationsContent #CPSContainer .CPS, #gradStudentsContainer #publicationsContent #CPSContainer .umdCard, #gradStudentsContainer #publicationsContent #CPSContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #GSCContainer .mastersThesis, #gradStudentsContainer #publicationsContent #GSCContainer .mastersProject, #gradStudentsContainer #publicationsContent #GSCContainer .phdDissertation, #gradStudentsContainer #publicationsContent #GSCContainer .CPS, #gradStudentsContainer #publicationsContent #GSCContainer .umdCard, #gradStudentsContainer #publicationsContent #GSCContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #JPContainer .mastersThesis, #gradStudentsContainer #publicationsContent #JPContainer .mastersProject, #gradStudentsContainer #publicationsContent #JPContainer .phdDissertation, #gradStudentsContainer #publicationsContent #JPContainer .CPS, #gradStudentsContainer #publicationsContent #JPContainer .umdCard, #gradStudentsContainer #publicationsContent #JPContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #CPContainer .mastersThesis, #gradStudentsContainer #publicationsContent #CPContainer .mastersProject, #gradStudentsContainer #publicationsContent #CPContainer .phdDissertation, #gradStudentsContainer #publicationsContent #CPContainer .CPS, #gradStudentsContainer #publicationsContent #CPContainer .umdCard, #gradStudentsContainer #publicationsContent #CPContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #BContainer .mastersThesis, #gradStudentsContainer #publicationsContent #BContainer .mastersProject, #gradStudentsContainer #publicationsContent #BContainer .phdDissertation, #gradStudentsContainer #publicationsContent #BContainer .CPS, #gradStudentsContainer #publicationsContent #BContainer .umdCard, #gradStudentsContainer #publicationsContent #BContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #BCContainer .mastersThesis, #gradStudentsContainer #publicationsContent #BCContainer .mastersProject, #gradStudentsContainer #publicationsContent #BCContainer .phdDissertation, #gradStudentsContainer #publicationsContent #BCContainer .CPS, #gradStudentsContainer #publicationsContent #BCContainer .umdCard, #gradStudentsContainer #publicationsContent #BCContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #TRContainer .mastersThesis, #gradStudentsContainer #publicationsContent #TRContainer .mastersProject, #gradStudentsContainer #publicationsContent #TRContainer .phdDissertation, #gradStudentsContainer #publicationsContent #TRContainer .CPS, #gradStudentsContainer #publicationsContent #TRContainer .umdCard, #gradStudentsContainer #publicationsContent #TRContainer .cardNoTitle, #gradStudentsContainer #publicationsContent #TPContainer .mastersThesis, #gradStudentsContainer #publicationsContent #TPContainer .mastersProject, #gradStudentsContainer #publicationsContent #TPContainer .phdDissertation, #gradStudentsContainer #publicationsContent #TPContainer .CPS, #gradStudentsContainer #publicationsContent #TPContainer .umdCard, #gradStudentsContainer #publicationsContent #TPContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #GSSContainer .mastersThesis, #publicationsContainer #gradStudentsContent #GSSContainer .mastersProject, #publicationsContainer #gradStudentsContent #GSSContainer .phdDissertation, #publicationsContainer #gradStudentsContent #GSSContainer .CPS, #publicationsContainer #gradStudentsContent #GSSContainer .umdCard, #publicationsContainer #gradStudentsContent #GSSContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #CPSContainer .mastersThesis, #publicationsContainer #gradStudentsContent #CPSContainer .mastersProject, #publicationsContainer #gradStudentsContent #CPSContainer .phdDissertation, #publicationsContainer #gradStudentsContent #CPSContainer .CPS, #publicationsContainer #gradStudentsContent #CPSContainer .umdCard, #publicationsContainer #gradStudentsContent #CPSContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #GSCContainer .mastersThesis, #publicationsContainer #gradStudentsContent #GSCContainer .mastersProject, #publicationsContainer #gradStudentsContent #GSCContainer .phdDissertation, #publicationsContainer #gradStudentsContent #GSCContainer .CPS, #publicationsContainer #gradStudentsContent #GSCContainer .umdCard, #publicationsContainer #gradStudentsContent #GSCContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #JPContainer .mastersThesis, #publicationsContainer #gradStudentsContent #JPContainer .mastersProject, #publicationsContainer #gradStudentsContent #JPContainer .phdDissertation, #publicationsContainer #gradStudentsContent #JPContainer .CPS, #publicationsContainer #gradStudentsContent #JPContainer .umdCard, #publicationsContainer #gradStudentsContent #JPContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #CPContainer .mastersThesis, #publicationsContainer #gradStudentsContent #CPContainer .mastersProject, #publicationsContainer #gradStudentsContent #CPContainer .phdDissertation, #publicationsContainer #gradStudentsContent #CPContainer .CPS, #publicationsContainer #gradStudentsContent #CPContainer .umdCard, #publicationsContainer #gradStudentsContent #CPContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #BContainer .mastersThesis, #publicationsContainer #gradStudentsContent #BContainer .mastersProject, #publicationsContainer #gradStudentsContent #BContainer .phdDissertation, #publicationsContainer #gradStudentsContent #BContainer .CPS, #publicationsContainer #gradStudentsContent #BContainer .umdCard, #publicationsContainer #gradStudentsContent #BContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #BCContainer .mastersThesis, #publicationsContainer #gradStudentsContent #BCContainer .mastersProject, #publicationsContainer #gradStudentsContent #BCContainer .phdDissertation, #publicationsContainer #gradStudentsContent #BCContainer .CPS, #publicationsContainer #gradStudentsContent #BCContainer .umdCard, #publicationsContainer #gradStudentsContent #BCContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #TRContainer .mastersThesis, #publicationsContainer #gradStudentsContent #TRContainer .mastersProject, #publicationsContainer #gradStudentsContent #TRContainer .phdDissertation, #publicationsContainer #gradStudentsContent #TRContainer .CPS, #publicationsContainer #gradStudentsContent #TRContainer .umdCard, #publicationsContainer #gradStudentsContent #TRContainer .cardNoTitle, #publicationsContainer #gradStudentsContent #TPContainer .mastersThesis, #publicationsContainer #gradStudentsContent #TPContainer .mastersProject, #publicationsContainer #gradStudentsContent #TPContainer .phdDissertation, #publicationsContainer #gradStudentsContent #TPContainer .CPS, #publicationsContainer #gradStudentsContent #TPContainer .umdCard, #publicationsContainer #gradStudentsContent #TPContainer .cardNoTitle, #publicationsContainer #publicationsContent #GSSContainer .mastersThesis, #publicationsContainer #publicationsContent #GSSContainer .mastersProject, #publicationsContainer #publicationsContent #GSSContainer .phdDissertation, #publicationsContainer #publicationsContent #GSSContainer .CPS, #publicationsContainer #publicationsContent #GSSContainer .umdCard, #publicationsContainer #publicationsContent #GSSContainer .cardNoTitle, #publicationsContainer #publicationsContent #CPSContainer .mastersThesis, #publicationsContainer #publicationsContent #CPSContainer .mastersProject, #publicationsContainer #publicationsContent #CPSContainer .phdDissertation, #publicationsContainer #publicationsContent #CPSContainer .CPS, #publicationsContainer #publicationsContent #CPSContainer .umdCard, #publicationsContainer #publicationsContent #CPSContainer .cardNoTitle, #publicationsContainer #publicationsContent #GSCContainer .mastersThesis, #publicationsContainer #publicationsContent #GSCContainer .mastersProject, #publicationsContainer #publicationsContent #GSCContainer .phdDissertation, #publicationsContainer #publicationsContent #GSCContainer .CPS, #publicationsContainer #publicationsContent #GSCContainer .umdCard, #publicationsContainer #publicationsContent #GSCContainer .cardNoTitle, #publicationsContainer #publicationsContent #JPContainer .mastersThesis, #publicationsContainer #publicationsContent #JPContainer .mastersProject, #publicationsContainer #publicationsContent #JPContainer .phdDissertation, #publicationsContainer #publicationsContent #JPContainer .CPS, #publicationsContainer #publicationsContent #JPContainer .umdCard, #publicationsContainer #publicationsContent #JPContainer .cardNoTitle, #publicationsContainer #publicationsContent #CPContainer .mastersThesis, #publicationsContainer #publicationsContent #CPContainer .mastersProject, #publicationsContainer #publicationsContent #CPContainer .phdDissertation, #publicationsContainer #publicationsContent #CPContainer .CPS, #publicationsContainer #publicationsContent #CPContainer .umdCard, #publicationsContainer #publicationsContent #CPContainer .cardNoTitle, #publicationsContainer #publicationsContent #BContainer .mastersThesis, #publicationsContainer #publicationsContent #BContainer .mastersProject, #publicationsContainer #publicationsContent #BContainer .phdDissertation, #publicationsContainer #publicationsContent #BContainer .CPS, #publicationsContainer #publicationsContent #BContainer .umdCard, #publicationsContainer #publicationsContent #BContainer .cardNoTitle, #publicationsContainer #publicationsContent #BCContainer .mastersThesis, #publicationsContainer #publicationsContent #BCContainer .mastersProject, #publicationsContainer #publicationsContent #BCContainer .phdDissertation, #publicationsContainer #publicationsContent #BCContainer .CPS, #publicationsContainer #publicationsContent #BCContainer .umdCard, #publicationsContainer #publicationsContent #BCContainer .cardNoTitle, #publicationsContainer #publicationsContent #TRContainer .mastersThesis, #publicationsContainer #publicationsContent #TRContainer .mastersProject, #publicationsContainer #publicationsContent #TRContainer .phdDissertation, #publicationsContainer #publicationsContent #TRContainer .CPS, #publicationsContainer #publicationsContent #TRContainer .umdCard, #publicationsContainer #publicationsContent #TRContainer .cardNoTitle, #publicationsContainer #publicationsContent #TPContainer .mastersThesis, #publicationsContainer #publicationsContent #TPContainer .mastersProject, #publicationsContainer #publicationsContent #TPContainer .phdDissertation, #publicationsContainer #publicationsContent #TPContainer .CPS, #publicationsContainer #publicationsContent #TPContainer .umdCard, #publicationsContainer #publicationsContent #TPContainer .cardNoTitle {
-  background-color: white;
+  /*background-color: white;*/
   padding: 20px 100px 20px 30px;
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
   border-left: 3px solid #FF4081;
 }
 /* line 601, ../../app/styles/main.scss */
@@ -625,7 +626,7 @@ google-map{
   height: 600px;
 }
 
-#viewContainer{
+#viewMainContainer{
   min-height: 800px;
 }
 
@@ -656,6 +657,17 @@ google-map{
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+  transition: all .2s;
+}
+
+.material-icons:hover{
+  -webkit-font-smoothing: antialiased;
+  background-clip: border-box;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 1px 3px 0px, rgba(0, 0, 0, 0.137255) 0px 1px 1px 0px, rgba(0, 0, 0, 0.117647) 0px 2px 1px -1px;
 }
 
 .create{
@@ -663,7 +675,12 @@ google-map{
 }
 
 .each{
+  margin-bottom: 15px;
   position: relative;
+  background-color: white;
+  /*transition: all .2s;*/
+  opacity: 1;
+  transition: background-color 200ms linear;
 }
 
 .each .editDelete{
@@ -701,6 +718,79 @@ md-input-container .md-input{
 md-input-container.md-default-theme, md-input-container label, md-input-container.md-default-theme, md-input-container .md-placeholder{
   color: grey;
 }
+
+body .green{
+  background-color: rgba(95,247,45, .4);
+}
+
+body .red{
+  background-color: rgba(255, 34, 34, .5);
+}
+
+/* Testing Custom Paper Tab Styles */
+#navTabs{
+  display: block;
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 15px;
+  color: #C5CAE9;
+}
+
+#navTabs a{
+  display: inline-block;
+  padding: 8px 30px 7px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  transition: all .4s;
+  border-bottom: 4px solid transparent;
+  text-decoration: none;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+
+#navTabs a:hover{
+  background-color: rgba(255,255,255,.05);
+}
+
+#navTabs a.active{
+  color: white;
+  border-bottom: 4px solid #FF4081;
+}
+
+/*#navTabs li:first-child{
+  border-bottom: 4px solid #FF4081;
+}*/
+
+#viewContainer{
+  transition: all .2s;
+  display: none;
+  opacity: 0;
+  /*margin-top: 600px;*/
+}
+
+#navTabs{
+  transition: all .2s;
+  opacity: 0;
+}
+
+#headerRow1{
+  height: 48px;
+}
+
+#headerRow1 .info{
+  padding: 15px 0;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -41,54 +41,47 @@ angular
         redirectTo: '/'
       });
   })
-    .controller('AppCtrl', function ($rootScope, $location, $scope, $compile) {
+  .controller('AppCtrl', function ($rootScope, $location, $scope, $compile, $window) {
+    var path = function() { return $location.path(); };
 
-        var path = function() { return $location.path(); };
+    $rootScope.$watch(path, function(newVal, oldVal){
+      if(newVal === "/"){
+          $('#navTabs a').removeClass( "active" );
+          $('#navTabs a:nth-child(1)').addClass( "active" );
+          
+      }else if(newVal === "/publications"){
+          $('#navTabs a').removeClass( "active" );
+          $('#navTabs a:nth-child(2)').addClass( "active" );
+      }else if(newVal === "/gradStudents"){
+          $('#navTabs a').removeClass( "active" );
+          $('#navTabs a:nth-child(3)').addClass( "active" );
+      }else if(newVal === "/grantActivities"){
+          $('#navTabs a').removeClass( "active" );
+          $('#navTabs a:nth-child(4)').addClass( "active" );
+      }else if(newVal === "/contactInfo"){
+          $('#navTabs a').removeClass( "active" );
+          $('#navTabs a:nth-child(5)').addClass( "active" );
+      }
 
-        $rootScope.$watch(path, function(newVal, oldVal){
-
-            var element = $( "#mainTabs" );
-
-            if(newVal == "/"){
-                $( "#mainTabs" ).attr( "md-selected", "0" );
-            //           console.log(0);
-            }else if(newVal == "/publications"){
-                $( "#mainTabs" ).attr( "md-selected", "1" );
-            //           console.log(1);
-            }else if(newVal == "/gradStudents"){
-                $( "#mainTabs" ).attr( "md-selected", "2" );
-            //           console.log(2);
-            }else if(newVal == "/grantActivities"){
-                $( "#mainTabs" ).attr( "md-selected", "3" );
-            //           console.log(3);
-            }else if(newVal == "/contactInfo"){
-                $( "#mainTabs" ).attr( "md-selected", "4" );
-            //           console.log(4);
-            };
-
-            //To Recompile the element's it chnages its active state on direct URL
-    //            $compile(element)($scope);
-
-            $('#home').on("click", function(){
-                $location.url('/');
-            });
-            $('#publications').on("click", function(){
-                $location.url('/publications');
-            });
-            $('#gradStudents').on("click", function(){
-                $location.url('/gradStudents');
-            });
-            $('#grantActivities').on("click", function(){
-                $location.url('/grantActivities');
-            });
-            $('#contactInfo').on("click", function(){
-                $location.url('/contactInfo');
-            });
-    });
+  });
     
+  //On Click of the Nav Tabs Change Active Class
+  $('#navTabs a').on("click", function(){
+      $(this).css({'border-size': 0+'px'});
+      $('#navTabs a').removeClass( "active" );
+      $(this).addClass( "active" );
+      $('#viewContainer').css({"display": "none", "opacity": 0});
+      $('#viewContainer').animate({opacity: 1}, 300);
+      $('#viewContainer').css({"display": "block"});
+  });
 
+  $window.onload = function() {
+    console.log("loaded");
+    $('#navTabs').animate({opacity: 1}, 300);
+    $('#viewContainer').css({"display": "block"});
+    $('#viewContainer').animate({opacity: 1}, 300);
+  }
 
-    
 });
     
 

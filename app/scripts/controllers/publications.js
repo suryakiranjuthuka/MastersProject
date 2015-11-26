@@ -11,9 +11,46 @@
  * Controller of the cselApp
  */
 angular.module('cselApp')
-  .controller('PublicationsCtrl', function (GetPublicationsContent, CreatePublication, DeletePublication, $mdDialog, $rootScope) {
+  .controller('PublicationsCtrl', function (PublicationsContent, $mdDialog, $mdToast, $rootScope) {
     
+    // Assign to the local Scope
     var publications = this;
+    
+    
+    //GET the json data from the service($http)
+    PublicationsContent.get().then(function(data) {
+      var umd09JP = [], umd03JP = [], umd91JP = [], books = [], bookChapters = [], umd09CP = [], umd03CP = [], umd91CP = [], techReports = [], thesisProject = [];
+      
+      angular.forEach(data, function(value, key) {
+        if( data[key]._type === 'umd09JP' ){ umd09JP.push(data[key]); }
+        if( data[key]._type === 'umd03JP' ){ umd03JP.push(data[key]); }
+        if( data[key]._type === 'umd91JP' ){ umd91JP.push(data[key]); }
+        
+        if( data[key]._type === 'books' ){ books.push(data[key]); }
+        if( data[key]._type === 'bookChapters' ){ bookChapters.push(data[key]); }
+        
+        if( data[key]._type === 'umd09CP' ){ umd09CP.push(data[key]); }
+        if( data[key]._type === 'umd03CP' ){ umd03CP.push(data[key]); }
+        if( data[key]._type === 'umd91CP' ){ umd91CP.push(data[key]); }
+        
+        if( data[key]._type === 'techReports' ){ techReports.push(data[key]); }
+        if( data[key]._type === 'thesisProject' ){ thesisProject.push(data[key]); }
+      });
+        //Assign to local Scope
+        publications.umd09JP = umd09JP;
+        publications.umd03JP = umd03JP; 
+        publications.umd91JP = umd91JP;
+        
+        publications.books = books;
+        publications.bookChapters = bookChapters;
+        
+        publications.umd09CP = umd09CP;
+        publications.umd03CP = umd03CP;
+        publications.umd91CP = umd91CP;
+        
+        publications.techReports = techReports;
+        publications.thesisProject = thesisProject;
+    });
     
     
     
@@ -41,7 +78,7 @@ angular.module('cselApp')
             '</md-dialog>',
             locals: { type: publications.tempType, fClass: publications.tempClass, temph2: publications.temph2, templabel: publications.templabel },
           // controller: 'GreetingController',
-          controller: function ($scope, $mdDialog, $compile, DeletePublication, type, fClass, temph2, templabel) {
+          controller: function ($scope, $mdDialog, $compile, PublicationsContent, type, fClass, temph2, templabel) {
             $scope.type = type;
             $scope.fClass = fClass;
             $scope.temph2 = temph2;
@@ -50,7 +87,7 @@ angular.module('cselApp')
               $mdDialog.hide();
             };
             $scope.add = function() {
-              CreatePublication.create($scope.type, $scope.formData)
+              PublicationsContent.create($scope.type, $scope.formData)
               .then(function(id) {
                   if(id){
                     //Dynamically Add an element from 'formData'
@@ -63,35 +100,42 @@ angular.module('cselApp')
                     '</div>' ;
                     var temp = $compile(divTemplate)($rootScope);
                     var myEl = angular.element( document.querySelector( '#publicationsContent .' + $scope.fClass ) );
+                    temp.css({'opacity': 0}); 
+                    temp.toggleClass('green');
                     myEl.prepend(temp);   
+                    temp.animate({ 'opacity': 1}, 340, function(){
+                      temp.toggleClass('green');
+                    });
+                    // create toast settings object
+                    var toastSettings = $mdToast.simple().content('Created Successfully!');
+                    $mdToast.show(toastSettings);
                   }else{ 
                     //Can't add the data
                   }
               });
-              
               //Close the Dialog after sending the data!
               $mdDialog.hide();
             };
-          },
-          onComplete: afterShowAnimation
+          }
+          // onComplete: afterShowAnimation
         });
         // When the 'enter' animation finishes...
-        function afterShowAnimation(scope, element, options) {
+        // function afterShowAnimation(scope, element, options) {
            // post-show code here: DOM element focus, etc.
-        }
+        // }
     };
     
     
     
     //EDIT OLD PUBLICATION
-    $rootScope.editOldR = function($event, tempType, tempClass, temph2, templabel, tempId, tempPoint) {
+    $rootScope.editOldR = function($event, tempType, tempClass, temph2, templabel, tempId) {
       publications.tempType = tempType;
       publications.tempClass = tempClass;
       publications.temph2 = temph2;
       publications.templabel = templabel;
       publications.tempId = tempId;
-      publications.tempPoint = tempPoint;
-      publications.eventTarget = $event.target;
+      publications.tempPoint = $event.target.parentNode.parentNode.children[0].innerHTML;
+      publications.eventTarget = $event.target.parentNode.parentNode.children[0];
         $mdDialog.show({
           targetEvent: $event,
           template:
@@ -110,7 +154,7 @@ angular.module('cselApp')
             '</md-dialog>',
             locals: { type: publications.tempType, fClass: publications.tempClass, temph2: publications.temph2, templabel: publications.templabel, tempId: publications.tempId, tempPoint: publications.tempPoint, eventTarget: publications.eventTarget },
           // controller: 'GreetingController',
-          controller: function ($scope, $mdDialog, $compile, UpdatePublication, type, fClass, temph2, eventTarget) {
+          controller: function ($scope, $mdDialog, $compile, PublicationsContent, type, fClass, temph2, tempPoint, eventTarget) {
             $scope.temph2 = temph2;
             $scope.templabel = templabel;
             $scope.tempId = tempId;
@@ -121,134 +165,69 @@ angular.module('cselApp')
               $mdDialog.hide();
             };
             $scope.update = function() {
-              UpdatePublication.update(type, $scope.tempPoint, $scope.tempId)
+              PublicationsContent.update(type, $scope.tempPoint, $scope.tempId)
               .then(function() {
-                var parent = eventTarget.parentNode.parentNode.children[0];
-                angular.element(parent).text($scope.tempPoint);
+                // var parent = eventTarget.parentNode.parentNode.children[0];
+                angular.element(eventTarget).text($scope.tempPoint);
+                // create toast settings object
+                var toastSettings = $mdToast.simple().content('Updated Successfully!');
+                $mdToast.show(toastSettings);
               });
-              
               //Close the Dialog after sending the data!
               $mdDialog.hide();
             };
-          },
-          onComplete: afterShowAnimation
+          }
+          // onComplete: afterShowAnimation
         });
         // When the 'enter' animation finishes...
-        function afterShowAnimation(scope, element, options) {
+        // function afterShowAnimation(scope, element, options) {
            // post-show code here: DOM element focus, etc.
-        }
-    };
-    
-    
-
-    
-    
-    
-    
-    
-    
-    //For normal operations
-    publications.delete = function(a, b){
-        DeletePublication.delete(a, b);
-    };
-    publications.removeElement = function($event){
-        $event.target.parentNode.parentNode.remove();
-    };
-    
-    //For operating from a different controller
-    $rootScope.deleteR = function(a, b){
-        DeletePublication.delete(a, b);
-    };
-    $rootScope.removeElementR = function($event){
-        $event.target.parentNode.parentNode.remove();
+        // }
     };
     
     
     
-    //Get the json data from the service($http)
-    GetPublicationsContent.get().then(function(data) {
-      
-      var umd09JP = [];
-      var umd03JP = [];
-      var umd91JP = [];
-      
-      var books = [];
-      var bookChapters = [];
-      
-      var umd09CP = [];
-      var umd03CP = [];
-      var umd91CP = [];
-      
-      var techReports = [];
-      var thesisProject = [];
-      
-      angular.forEach(data, function(value, key) {
-        
-        if( data[key]._type === 'umd09JP' ){
-          umd09JP.push(data[key]);
-        }
-        if( data[key]._type === 'umd03JP' ){
-          umd03JP.push(data[key]);
-        }
-        if( data[key]._type === 'umd91JP' ){
-          umd91JP.push(data[key]);
-        }
-        
-        if( data[key]._type === 'books' ){
-          books.push(data[key]);
-        }
-        if( data[key]._type === 'bookChapters' ){
-          bookChapters.push(data[key]);
-        }
-        
-        if( data[key]._type === 'umd09CP' ){
-          umd09CP.push(data[key]);
-        }
-        if( data[key]._type === 'umd03CP' ){
-          umd03CP.push(data[key]);
-        }
-        if( data[key]._type === 'umd91CP' ){
-          umd91CP.push(data[key]);
-        }
-        
-        if( data[key]._type === 'techReports' ){
-          techReports.push(data[key]);
-        }
-        if( data[key]._type === 'thesisProject' ){
-          thesisProject.push(data[key]);
-        }
-        
-        
+    //DELETE Publication
+    publications.delete = function(a, b){ //For normal operations
+        PublicationsContent.delete(a, b);
+    };
+    $rootScope.deleteR = function(a, b){  //For operating from a different controller
+        PublicationsContent.delete(a, b);
+    };
+    
+    publications.removeElement = function($event){  //For normal operations
+      var temp = angular.element($event.target.parentNode.parentNode);
+      temp.toggleClass('red');
+      temp.animate({ 'opacity': 0}, function(){
+        temp.animate({'height': 0+'px', 'margin': 0}, 'fast');
       });
-      
-      
-        publications.umd09JP = umd09JP;
-        publications.umd03JP = umd03JP; 
-        publications.umd91JP = umd91JP;
-        
-        publications.books = books;
-        publications.bookChapters = bookChapters;
-        
-        publications.umd09CP = umd09CP;
-        publications.umd03CP = umd03CP;
-        publications.umd91CP = umd91CP;
-        
-        publications.techReports = techReports;
-        publications.thesisProject = thesisProject;
-        
-    });
+      // create toast settings object
+      var toastSettings = $mdToast.simple().content('Deleted Successfully!');
+      $mdToast.show(toastSettings);
+    };
+    $rootScope.removeElementR = function($event){ //For operating from a different controller
+      var temp = angular.element($event.target.parentNode.parentNode);
+      temp.toggleClass('red');
+      temp.animate({ 'opacity': 0}, function(){
+        temp.animate({'height': 0+'px', 'margin': 0}, 'fast');
+      });
+      // create toast settings object
+      var toastSettings = $mdToast.simple().content('Deleted Successfully!');
+      $mdToast.show(toastSettings);
+    };
     
     
-        /*-- Scroll to link --*/
+    
+    /*---------- Scroll to link ----------*/
     $(function(){
-            /*-- Scroll to link --*/
-            $('.scroller-link').click(function(e){
-                console.log("click");
-                e.preventDefault(); //Don't automatically jump to the link
-                var id;
-                id = $(this).attr('href').replace('#', ''); //Extract the id of the element to jump to
-                $('html,body').animate({scrollTop: $("#"+id).offset().top - 40},'normal');
-            });
+        /*-- Scroll to link --*/
+        $('.scroller-link').click(function(e){
+            console.log("click");
+            e.preventDefault(); //Don't automatically jump to the link
+            var id;
+            id = $(this).attr('href').replace('#', ''); //Extract the id of the element to jump to
+            $('html,body').animate({scrollTop: $("#"+id).offset().top - 40},'normal');
+        });
         
         //For Fixed Nav after offset
           var navpos = $('#viewContainer').offset();
@@ -259,9 +238,7 @@ angular.module('cselApp')
             } else {
               $('#sideNav').removeClass('fixed');
             }
-          });
-        
-        
+          });    
     });
     
-});
+  });

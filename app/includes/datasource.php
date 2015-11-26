@@ -21,6 +21,8 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
       // echo "<pre>",print_r($home),"</pre>";
   }
   
+  
+  
   /* ==========================================================================
      Initilize All Publications
      ========================================================================== */
@@ -36,41 +38,52 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
       echo json_encode($publications);
   }
   
+  
+  
   /* ==========================================================================
-     Initilize Category of the Lists
+     Initilize All Grad Students
      ========================================================================== */
-  if (($_GET['page'] == 'category_lists') && ($_GET['action'] == 'getLists')) {
-      //Search for All Lists
+  if (($_GET['page'] == 'gradStudents') && ($_GET['action'] == 'getGradStudents')) {
+      //Search for publication index
       $params = [
-        'index' => 'lists',
-        'type' => 'list',
-        'size' => 200,
-  //        'sort' => 'name:desc'
-    ];
-
-      $results = $ES->search($params);
-      $allCategoryLists = $results['hits']['hits'];
+        'index' => 'grad-students',
+        'size' => 300
+      ];
       
-      echo json_encode($allCategoryLists);
-  }
-
-  /* ==========================================================================
-     Initilize all of the lexons
-     ========================================================================== */
-  if (($_GET['page'] == 'category_lexons') && ($_GET['action'] == 'getAllLexons')) {
-      //Search for All Lexons
-    $params = [
-        'index' => 'lexons',
-        'type' => $_GET['categoryId'],
-        'size' => 200,
-    ];
-
       $results = $ES->search($params);
-      $allCategoryLexons = $results['hits']['hits'];
-
-      echo json_encode($allCategoryLexons);
+      $gradStudents = $results['hits']['hits'];
+      echo json_encode($gradStudents);
   }
   
+
+
+  /* ==========================================================================
+     CRUD All Publications
+     ========================================================================== */
+   // CREATE PUBLICATIONS
+   if (($_GET['page'] == 'publications') && ($_GET['action'] == 'create')) {
+       //Create a Publication
+     $params = [
+       'index' => 'publications',
+       'type' => $_GET['type'],
+       'body' => [
+                   'point' => $_GET['formData']
+                 ],
+     ];
+     $response = $ES->index($params);
+
+     //Get Created Publication
+     $params = [
+       'index' => 'publications',
+       'type' => $_GET['type'],
+       'id' => $response['_id'],
+     ];
+
+     // Get doc at /my_index/my_type/my_id
+     $response1 = $ES->get($params);
+     echo json_encode($response1);
+   }
+   
   // DELETE PUBLICATIONS
   if (($_GET['page'] == 'publications') && ($_GET['action'] == 'delete')) {
       //Delete a publication
@@ -83,34 +96,7 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
     echo json_encode($response);
   }
   
-  
-    // CREATE PUBLICATIONS
-  if (($_GET['page'] == 'publications') && ($_GET['action'] == 'create')) {
-      //Create a Publication
-    $params = [
-      'index' => 'publications',
-      'type' => $_GET['type'],
-      'body' => [
-                  'point' => $_GET['formData']
-                ],
-    ];
-    $response = $ES->index($params);
-
-    //Get Created Publication
-    $params = [
-      'index' => 'publications',
-      'type' => $_GET['type'],
-      'id' => $response['_id'],
-    ];
-
-    // Get doc at /my_index/my_type/my_id
-    $response1 = $ES->get($params);
-    echo json_encode($response1);
-  }
-  
-  
-  
-  //Update Publications
+  //UPDATE Publications
   if (($_GET['page'] == 'publications') && ($_GET['action'] == 'update')) {
       //Update a Publication
     $params = [
@@ -122,10 +108,66 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
                 ],
     ];
     $response = $ES->index($params);
-    
     echo json_encode($response);
   }
 
   
+  /* ==========================================================================
+     CRUD All GRAD STUDENTS
+  ========================================================================== */
+// CREATE Student
+if (($_GET['page'] == 'gradStudents') && ($_GET['action'] == 'create')) {
+    //Create a Publication
+  $params = [
+    'index' => 'grad-students',
+    'type' => $_GET['type'],
+    'body' => [
+                'point' => $_GET['formData']
+              ],
+  ];
+  $response = $ES->index($params);
+
+  //Get Created Student
+  $params = [
+    'index' => 'grad-students',
+    'type' => $_GET['type'],
+    'id' => $response['_id'],
+  ];
+
+  // Get doc at /my_index/my_type/my_id
+  $response1 = $ES->get($params);
+  echo json_encode($response1);
+}
+
+// DELETE Grad Student
+if (($_GET['page'] == 'gradStudents') && ($_GET['action'] == 'delete')) {
+   //Delete a Student
+ $params = [
+     'index' => 'grad-students',
+     'type' => $_GET['type'],
+     'id' => $_GET['id']
+ ];
+ $response = $ES->delete($params);
+ echo json_encode($response);
+}
+
+//UPDATE Grad Student
+if (($_GET['page'] == 'gradStudents') && ($_GET['action'] == 'update')) {
+   //Update a Student
+ $params = [
+   'index' => 'grad-students',
+   'type' => $_GET['type'],
+   'id' => $_GET['id'],
+   'body' => [
+               'point' => $_GET['formData']
+             ],
+ ];
+ $response = $ES->index($params);
+ echo json_encode($response);
+}
+
+
+
+
   
 }

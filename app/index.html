@@ -56,7 +56,7 @@
         </div>
           
     <div ng-controller="AppCtrl">
-        <nav id="mainNav">
+        <!-- <nav id="mainNav">
               <md-tabs id="mainTabs">
                 <md-tab id="home" label="Home"></md-tab>
                 <md-tab id="publications" label="Publications"></md-tab>
@@ -64,14 +64,23 @@
                 <md-tab id="grantActivities" label="Grant Activities"></md-tab>
                 <md-tab id="contactInfo" label="Contact Info"></md-tab>
             </md-tabs>
-        </nav>
-</div>
-        <div class="blankSpace"></div>
+        </nav> -->
+        <ul id="navTabs">
+          <a ng-href="#/">Home</a>
+          <a ng-href="#/publications">Publications</a>
+          <a ng-href="#/gradStudents">Graduate Students</a>
+          <a ng-href="#/grantActivities">Grant Activities</a>
+          <a ng-href="#/contactInfo">Contact Info</a>
+        </ul>
+    </div>
+    
+
       </header>
       
-      
-    <div id="viewContainer">
-    <div ng-view=""></div>
+    <div id="viewMainContainer">  
+      <div id="viewContainer">
+        <div ng-view=""></div>
+      </div>
     </div>
       
     <footer id="footer">
