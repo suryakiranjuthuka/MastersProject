@@ -44,7 +44,7 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
      Initilize All Grad Students
      ========================================================================== */
   if (($_GET['page'] == 'gradStudents') && ($_GET['action'] == 'getGradStudents')) {
-      //Search for publication index
+      //Search for grand-students index
       $params = [
         'index' => 'grad-students',
         'size' => 300
@@ -53,6 +53,21 @@ if (isset($_GET['page']) && isset($_GET['action'])) {
       $results = $ES->search($params);
       $gradStudents = $results['hits']['hits'];
       echo json_encode($gradStudents);
+  }
+  
+  /* ==========================================================================
+     Initilize All Grant Activities
+     ========================================================================== */
+  if (($_GET['page'] == 'grantActivities') && ($_GET['action'] == 'getGrantActivities')) {
+      //Search for grant-activities index
+      $params = [
+        'index' => 'grant-activities',
+        'size' => 300
+      ];
+      
+      $results = $ES->search($params);
+      $grantActivities = $results['hits']['hits'];
+      echo json_encode($grantActivities);
   }
   
 
@@ -169,5 +184,61 @@ if (($_GET['page'] == 'gradStudents') && ($_GET['action'] == 'update')) {
 
 
 
+/* ==========================================================================
+   CRUD All GRANT ACTIVITIES
+========================================================================== */
+// CREATE Grant
+if (($_GET['page'] == 'grantActivities') && ($_GET['action'] == 'create')) {
+  //Create a Grant
+$params = [
+  'index' => 'grant-activities',
+  'type' => 'allActivities',
+  'body' => [
+              'point' => $_GET['formData']
+            ],
+];
+$response = $ES->index($params);
+
+//Get Created Grant
+$params = [
+  'index' => 'grant-activities',
+  'type' => 'allActivities',
+  'id' => $response['_id'],
+];
+
+// Get doc at /my_index/my_type/my_id
+$response1 = $ES->get($params);
+echo json_encode($response1);
+}
+
+// DELETE Grad Student
+if (($_GET['page'] == 'grantActivities') && ($_GET['action'] == 'delete')) {
+ //Delete a Student
+$params = [
+   'index' => 'grant-activities',
+   'type' => 'allActivities',
+   'id' => $_GET['id']
+];
+$response = $ES->delete($params);
+echo json_encode($response);
+}
+
+//UPDATE Grad Student
+if (($_GET['page'] == 'grantActivities') && ($_GET['action'] == 'update')) {
+ //Update a Student
+$params = [
+ 'index' => 'grant-activities',
+ 'type' => 'allActivities',
+ 'id' => $_GET['id'],
+ 'body' => [
+             'point' => $_GET['formData']
+           ],
+];
+$response = $ES->index($params);
+echo json_encode($response);
+}
+
+
   
 }
+

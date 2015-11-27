@@ -76,7 +76,6 @@ angular
   });
 
   $window.onload = function() {
-    console.log("loaded");
     $('#navTabs').animate({opacity: 1}, 300);
     $('#viewContainer').css({"display": "block"});
     $('#viewContainer').animate({opacity: 1}, 300);

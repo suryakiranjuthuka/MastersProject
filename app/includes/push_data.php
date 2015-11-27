@@ -4,7 +4,7 @@
   $jsondata = file_get_contents('../data/data.json');
   $json = json_decode($jsondata, true);
   
-  //******************* IMPORT HOME FROM DATA.JSON *********************
+// //******************* IMPORT HOME FROM DATA.JSON *********************
  // $allHome = $json['home'];
  // 
  // foreach ($allHome as $name => $home) {
@@ -31,7 +31,7 @@
  // echo '<pre>',print_r($responses),'</pre>';
  
  
- //******************* IMPORT PUBLICATIONS FROM DATA.JSON *********************
+ // //******************* IMPORT PUBLICATIONS FROM DATA.JSON *********************
   // $allPublications = $json['publications'];
   // 
   // foreach ($allPublications as $key => $publications) {
@@ -57,7 +57,7 @@
  
 
 
-  //******************* IMPORT GRAD STUDENTS FROM DATA.JSON *********************
+// //******************* IMPORT GRAD STUDENTS FROM DATA.JSON *********************
   //  $allGradStudents = $json['gradStudents'];
   //  
   //  foreach ($allGradStudents as $key => $gradStudents) {
@@ -81,57 +81,27 @@
   //  $responses = $ES->bulk($params);
   //  echo '<pre>',print_r($responses),'</pre>';
 
- 
- 
- //******************* IMPORT LISTS FROM DATA.JSON *********************
- // $allCategoryLists = $json['list'];
- // 
- // foreach ($allCategoryLists as $allCategoryList) {
- //     $params['body'][] = [
- //         'index' => [
- //             '_index' => 'lists',
- //             '_type' => 'list',
- //             '_id' => $allCategoryList['id'],
- //         ],
- //     ];
- // 
- //     $params['body'][] = [
- //         'name' => $allCategoryList['name'],
- //         'modified' => $allCategoryList['modified'],
- //         'type' => $allCategoryList['type'],
- //     ];
- // }
- // 
- // $responses = $ES->bulk($params);
- // 
- // echo '<pre>',print_r($responses),'</pre>';
 
 
-//******************* IMPORT WHITELISTS FROM DATA.JSON *********************
- // $allCategories = $json['whitelist'];
- // 
- // $i = 1;
- // foreach ($allCategories as $category) {
- //     $params['body'][] = [
- //         'index' => [
- //             '_index' => 'whitelists',
- //             '_type' => 'whitelist',
- //             '_id' => $i,
- //         ],
- //     ];
- // 
- //     $params['body'][] = [
- //         'whitelistTargetType' => $category['whitelistTargetType'],
- //         'whitelistTarget' => $category['whitelistTarget'],
- //         'appliesToType' => $category['appliesToType'],
- //         'appliesTo' => $category['appliesTo'],
- //         'added' => $category['added'],
- //     ];
- //     ++$i;
- // }
- // 
- // $responses = $ES->bulk($params);
- // 
- // echo '<pre>',print_r($responses),'</pre>';
+ // //******************* IMPORT GRANT ACTIVITIES FROM DATA.JSON *********************
+   $allGrantActivities = $json['grantActivities'];
+   
+   foreach ($allGrantActivities as $key => $grantActivities) {
+         $params['body'][] = [
+             'index' => [
+                 '_index' => 'grant-activities',
+                 '_type' => 'allActivities'
+             ],
+         ];
+     
+         $params['body'][] = [
+             'point' => $grantActivities['point']
+         ];
+     }
+     
+     $responses = $ES->bulk($params);
+     echo '<pre>',print_r($responses),'</pre>';
+   
+   
  
 ?>

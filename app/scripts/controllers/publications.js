@@ -13,6 +13,7 @@
 angular.module('cselApp')
   .controller('PublicationsCtrl', function (PublicationsContent, $mdDialog, $mdToast, $rootScope) {
     
+    
     // Assign to the local Scope
     var publications = this;
     

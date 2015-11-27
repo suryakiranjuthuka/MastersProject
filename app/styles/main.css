@@ -468,7 +468,7 @@ footer {
 }
 /* line 465, ../../app/styles/main.scss */
 #grantActivitiesContainer .grantPara {
-  background-color: white;
+  background-color: transparent;
   padding: 25px 50px;
   margin-bottom: 20px;
   border-left: 3px solid #FF4081;
@@ -738,7 +738,7 @@ body .red{
 
 #navTabs a{
   display: inline-block;
-  padding: 8px 30px 7px;
+  padding: 8px 22px 7px;
   font-size: 14px;
   text-transform: uppercase;
   color: rgba(255,255,255,.7);

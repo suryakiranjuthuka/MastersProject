@@ -99,6 +99,45 @@ angular.module('cselApp')
         });
       }
     };
+  })
+  .factory('GrantActivitiesContent', function ($http) {
+    return{
+      get: function(){
+      return $http.get('includes/datasource.php', { params:{"page": "grantActivities", "action": "getGrantActivities"} })
+          .then(function(response) {  //success function
+            return response.data;
+          }, function(response) {     //error function
+            return response.data;
+        });
+      },
+      create: function(formData){
+      return $http.get('includes/datasource.php', { params:{"page": "grantActivities", "action": "create", "formData": formData} })
+          .then(function(response) {  //success function
+            console.log(response);
+            if(response.data.found){
+              return response.data._id;
+            }else { return false; }
+          }, function(response) {     //error function
+            console.log(response.data);
+        });
+      },
+      update: function(formData, id){
+      return $http.get('includes/datasource.php', { params:{"page": "grantActivities", "action": "update", "formData": formData, "id": id} })
+          .then(function(response) {  //success function
+            console.log(response.data);
+          }, function(response) {     //error function
+            console.log(response.data);
+        });
+      },
+      delete: function(id){
+      return $http.get('includes/datasource.php', { params:{"page": "grantActivities", "action": "delete", "id": id} })
+          .then(function(response) {  //success function
+            console.log(response.data);
+          }, function(response) {     //error function
+            console.log(response.data);
+        });
+      }
+    };
   });
   
   
