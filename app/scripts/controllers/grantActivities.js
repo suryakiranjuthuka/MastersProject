@@ -49,7 +49,7 @@ angular.module('cselApp')
                     //Dynamically Add an element from 'formData'
                     var divTemplate = '<div class="each">' +
                     '<li class="grantPara">'+ $scope.formData +'</li>' +
-                    '<div class="editDelete">' +
+                    '<div ng-show="login == true" class="editDelete">' +
                       '<i ng-click="editOldRGF($event,\''+ id +'\')" class="material-icons edit">edit</i>' +
                       '<i ng-click="deleteRGF(\''+ id +'\'); removeElementRGF($event)" class="material-icons delete">delete</i>' +
                     '</div>' +

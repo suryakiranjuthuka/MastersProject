@@ -22,19 +22,22 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-    <!-- Add your site or application content here -->
-<!--
-    <ul>
-      <li class="active"><a ng-href="#/">Home</a></li>
-      <li><a ng-href="#/publications">Publications</a></li>
-      <li><a ng-href="#/gradStudents">Graduate Students</a></li>
-      <li><a ng-href="#/grantActivities">Grant Activities</a></li>
-      <li><a ng-href="#/contactInfo">Contact Info</a></li>
-    </ul>
--->
-
-
+    
+      <div id="loginPage">
+        <div id="loginContainer" class="boxShadow">
+          <h2>CSEL Login</h2>
+          <md-input-container>
+            <label>User Name</label>
+            <input ng-model="userName" type="email">
+          </md-input-container>
+          <md-input-container>
+            <label>Password</label>
+            <input ng-model="password" type="password">
+          </md-input-container>
+          <md-button ng-click="login(userName, password)" class="md-button md-raised md-primary">login</md-button>
+        </div>
+      </div>
+      
       <header>
         <div id="headerRow1">
             <div class="container">
@@ -42,7 +45,7 @@
                     Computer & Information Sciences, UMass Dartmouth
                 </div>
                 <div id="login">
-                    <md-button>login</md-button>
+                    <md-button ng-click="loginButton()">login</md-button>
                 </div>
             </div>
         </div>
@@ -56,15 +59,6 @@
         </div>
           
     <div ng-controller="AppCtrl">
-        <!-- <nav id="mainNav">
-              <md-tabs id="mainTabs">
-                <md-tab id="home" label="Home"></md-tab>
-                <md-tab id="publications" label="Publications"></md-tab>
-                <md-tab id="gradStudents" label="Graduate Students"></md-tab>
-                <md-tab id="grantActivities" label="Grant Activities"></md-tab>
-                <md-tab id="contactInfo" label="Contact Info"></md-tab>
-            </md-tabs>
-        </nav> -->
         <ul id="navTabs">
           <a ng-href="#/">Home</a>
           <a ng-href="#/publications">Publications</a>

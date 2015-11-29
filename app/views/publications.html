@@ -33,11 +33,11 @@
         <div id="JPContainer">
 
             <h3 id="JPH31">At UMass Dartmouth (2009-2015)</h3>
-            <i ng-click="publications.createNew($event, 'umd09JP', 'JPH31', 'At UMass Dartmouth (2009-2015)', 'Add Journal')" class="material-icons create">add_box</i>
+            <i ng-show="login == true" ng-click="publications.createNew($event, 'umd09JP', 'JPH31', 'At UMass Dartmouth (2009-2015)', 'Add Journal')" class="material-icons create">add_box</i>
             <div class="JPH31">
               <div class="each" ng-repeat="publication in publications.umd09JP">
                 <li class="umdCard" ng-bind-html="publication._source.point"></li>
-                <div class="editDelete">
+                <div ng-show="login == true" class="editDelete">
                   <i ng-click="editOldR($event, 'umd09JP', 'JPH31', 'At UMass Dartmouth (2009-2015)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                   <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
                 </div>
@@ -45,11 +45,11 @@
             </div>
 
             <h3 id="JPH32">At UMass Dartmouth (2003-2009)</h3>
-            <i ng-click="publications.createNew($event, 'umd03JP', 'JPH32', 'At UMass Dartmouth (2003-2009)', 'Add Journal')" class="material-icons create">add_box</i>
+            <i ng-show="login == true" ng-click="publications.createNew($event, 'umd03JP', 'JPH32', 'At UMass Dartmouth (2003-2009)', 'Add Journal')" class="material-icons create">add_box</i>
             <div class="JPH32">
               <div class="each" ng-repeat="publication in publications.umd03JP">
                 <li class="umdCard" ng-bind-html="publication._source.point"></li>
-                <div class="editDelete">
+                <div ng-show="login == true" class="editDelete">
                   <i ng-click="editOldR($event, 'umd03JP', 'JPH32', 'At UMass Dartmouth (2003-2009)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                   <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
                 </div>
@@ -58,11 +58,11 @@
             
 
             <h3 id="JPH33">Before Joining UMass Dartmouth (1991-2003)</h3>
-            <i ng-click="publications.createNew($event, 'umd91JP', 'JPH33', 'Before Joining UMass Dartmouth (1991-2003)', 'Add Journal')" class="material-icons create">add_box</i>
+            <i ng-show="login == true" ng-click="publications.createNew($event, 'umd91JP', 'JPH33', 'Before Joining UMass Dartmouth (1991-2003)', 'Add Journal')" class="material-icons create">add_box</i>
             <div class="JPH33">
               <div class="each" ng-repeat="publication in publications.umd91JP">
                 <li class="umdCard" ng-bind-html="publication._source.point"></li>
-                <div class="editDelete">
+                <div ng-show="login == true" class="editDelete">
                   <i ng-click="editOldR($event, 'umd91JP', 'JPH33', 'Before Joining UMass Dartmouth (1991-2003)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                   <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
                 </div>
@@ -76,11 +76,11 @@
         <h2 id="Bh2">Proceedings / Books / Special Issue Edited (2008-2015)</h2>
         <div id="BContainer">
           <h3>Add Proceedings / Books / Special Issue Edited (2008-2015)</h3>
-          <i ng-click="publications.createNew($event, 'books', 'Bh2', 'Proceedings / Books / Special Issue Edited (2008-2015)', 'Add Book')" class="material-icons create">add_box</i>
+          <i ng-show="login == true" ng-click="publications.createNew($event, 'books', 'Bh2', 'Proceedings / Books / Special Issue Edited (2008-2015)', 'Add Book')" class="material-icons create">add_box</i>
           <div class="Bh2">
             <div class="each" ng-repeat="publication in publications.books">
               <li class="umdCard" ng-bind-html="publication._source.point"></li>
-              <div class="editDelete">
+              <div ng-show="login == true" class="editDelete">
                 <i ng-click="editOldR($event, 'books', 'Bh2', 'Proceedings / Books / Special Issue Edited (2008-2015)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                 <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
               </div>
@@ -92,11 +92,11 @@
         <h2 id="BCh2">Book Chapters (2008-2009)</h2>
         <div id="BCContainer">
           <h3>Add Book Chapters (2008-2009)</h3>
-          <i ng-click="publications.createNew($event, 'bookChapters', 'BCh2', 'Book Chapters (2008-2009)', 'Add Book')" class="material-icons create">add_box</i>
+          <i ng-show="login == true" ng-click="publications.createNew($event, 'bookChapters', 'BCh2', 'Book Chapters (2008-2009)', 'Add Book')" class="material-icons create">add_box</i>
           <div class="BCh2">
             <div class="each" ng-repeat="publication in publications.bookChapters">
               <li class="umdCard" ng-bind-html="publication._source.point"></li>
-              <div class="editDelete">
+              <div ng-show="login == true" class="editDelete">
                 <i ng-click="editOldR($event, 'bookChapters', 'BCh2', 'Book Chapters (2008-2009)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                 <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
               </div>
@@ -110,11 +110,11 @@
         <div id="CPContainer">
 
             <h3 id="CPH31">At UMass Dartmouth (2009-2015)</h3>
-            <i ng-click="publications.createNew($event, 'umd09CP', 'CPH31', 'At UMass Dartmouth (2009-2015)', 'Add Conference')" class="material-icons create">add_box</i>
+            <i ng-show="login == true" ng-click="publications.createNew($event, 'umd09CP', 'CPH31', 'At UMass Dartmouth (2009-2015)', 'Add Conference')" class="material-icons create">add_box</i>
             <div class="CPH31">
               <div class="each" ng-repeat="publication in publications.umd09CP">
                 <li class="umdCard" ng-bind-html="publication._source.point"></li>
-                <div class="editDelete">
+                <div ng-show="login == true" class="editDelete">
                   <i ng-click="editOldR($event, 'umd09CP', 'CPH31', 'At UMass Dartmouth (2009-2015)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                   <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
                 </div>
@@ -122,11 +122,11 @@
             </div>
 
             <h3 id="CPH32">At UMass Dartmouth (2003-2009)</h3>
-            <i ng-click="publications.createNew($event, 'umd03CP', 'CPH32', 'At UMass Dartmouth (2003-2009)', 'Add Conference')" class="material-icons create">add_box</i>
+            <i ng-show="login == true" ng-click="publications.createNew($event, 'umd03CP', 'CPH32', 'At UMass Dartmouth (2003-2009)', 'Add Conference')" class="material-icons create">add_box</i>
             <div class="CPH32">
               <div class="each" ng-repeat="publication in publications.umd03CP">
                 <li class="umdCard" ng-bind-html="publication._source.point"></li>
-                <div class="editDelete">
+                <div ng-show="login == true" class="editDelete">
                   <i ng-click="editOldR($event, 'umd03CP', 'CPH32', 'At UMass Dartmouth (2003-2009)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                   <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
                 </div>
@@ -134,11 +134,11 @@
             </div>
 
             <h3 id="CPH33">Before Joining UMass Dartmouth (1991-2003)</h3>
-            <i ng-click="publications.createNew($event, 'umd91CP', 'CPH33', 'Before Joining UMass Dartmouth (1991-2003)', 'Add Conference')" class="material-icons create">add_box</i>
+            <i ng-show="login == true" ng-click="publications.createNew($event, 'umd91CP', 'CPH33', 'Before Joining UMass Dartmouth (1991-2003)', 'Add Conference')" class="material-icons create">add_box</i>
             <div class="CPH33">
               <div class="each" ng-repeat="publication in publications.umd91CP">
                 <li class="umdCard" ng-bind-html="publication._source.point"></li>
-                <div class="editDelete">
+                <div ng-show="login == true" class="editDelete">
                   <i ng-click="editOldR($event, 'umd91CP', 'CPH33', 'Before Joining UMass Dartmouth (1991-2003)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                   <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
                 </div>
@@ -151,11 +151,11 @@
         <h2 id="TRh2">Technical Reports (1999-2008)</h2>
         <div id="TRContainer">
           <h3>Add Technical Reports (1999-2008)</h3>
-          <i ng-click="publications.createNew($event, 'techReports', 'TRh2', 'Technical Reports (1999-2008)', 'Add Report')" class="material-icons create">add_box</i>
+          <i ng-show="login == true" ng-click="publications.createNew($event, 'techReports', 'TRh2', 'Technical Reports (1999-2008)', 'Add Report')" class="material-icons create">add_box</i>
           <div class="TRh2">
             <div class="each" ng-repeat="publication in publications.techReports">
               <li class="umdCard" ng-bind-html="publication._source.point"></li>
-              <div class="editDelete">
+              <div ng-show="login == true" class="editDelete">
                 <i ng-click="editOldR($event, 'techReports', 'TRh2', 'Technical Reports (1999-2008)', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                 <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
               </div>
@@ -167,11 +167,11 @@
         <h2 id="TPh2">Thesis and Project</h2>
         <div id="TPContainer">
           <h3>Add Thesis and Project</h3>
-          <i ng-click="publications.createNew($event, 'thesisProject', 'TPh2', 'Thesis and Project', 'Add Report')" class="material-icons create">add_box</i>
+          <i ng-show="login == true" ng-click="publications.createNew($event, 'thesisProject', 'TPh2', 'Thesis and Project', 'Add Report')" class="material-icons create">add_box</i>
           <div class="TPh2">
             <div class="each" ng-repeat="publication in publications.thesisProject">
               <li class="umdCard" ng-bind-html="publication._source.point"></li>
-              <div class="editDelete">
+              <div ng-show="login == true" class="editDelete">
                 <i ng-click="editOldR($event, 'thesisProject', 'TPh2', 'Thesis and Project', 'Edit Data', publication._id)" class="material-icons edit">edit</i>
                 <i ng-click="publications.delete(publication._id, publication._type); publications.removeElement($event)" class="material-icons delete">delete</i>
               </div>

@@ -1,11 +1,11 @@
 <div id="grantActivitiesContainer">
     <h2>Funding and Grant Activities</h2>
-    <i ng-click="grantActivities.createNew($event)" class="material-icons create">add_box</i>
+    <i ng-show="login == true" ng-click="grantActivities.createNew($event)" class="material-icons create">add_box</i>
     </br>
     <div id="grantActivities">
       <div class="each" ng-repeat="grantActivity in grantActivities.data">
         <li class="grantPara" ng-bind-html="grantActivity._source.point"></li>
-        <div class="editDelete">
+        <div ng-show="login == true" class="editDelete">
           <i ng-click="editOldRGF($event, grantActivity._id)" class="material-icons edit">edit</i>
           <i ng-click="grantActivities.delete(grantActivity._id); grantActivities.removeElement($event)" class="material-icons delete">delete</i>
         </div>
