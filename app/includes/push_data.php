@@ -84,23 +84,23 @@
 
 
  // //******************* IMPORT GRANT ACTIVITIES FROM DATA.JSON *********************
-  //  $allGrantActivities = $json['grantActivities'];
-  //  
-  //  foreach ($allGrantActivities as $key => $grantActivities) {
-  //        $params['body'][] = [
-  //            'index' => [
-  //                '_index' => 'grant-activities',
-  //                '_type' => 'allActivities'
-  //            ],
-  //        ];
-  //    
-  //        $params['body'][] = [
-  //            'point' => $grantActivities['point']
-  //        ];
-  //    }
-  //    
-  //    $responses = $ES->bulk($params);
-  //    echo '<pre>',print_r($responses),'</pre>';
+   $allGrantActivities = $json['grantActivities'];
+   
+   foreach ($allGrantActivities as $key => $grantActivities) {
+         $params['body'][] = [
+             'index' => [
+                 '_index' => 'grant-activities',
+                 '_type' => 'allActivities'
+             ],
+         ];
+     
+         $params['body'][] = [
+             'point' => $grantActivities['point']
+         ];
+     }
+     
+     $responses = $ES->bulk($params);
+     echo '<pre>',print_r($responses),'</pre>';
    
    
  
