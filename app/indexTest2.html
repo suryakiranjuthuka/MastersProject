@@ -1,0 +1,21 @@
+
+<html>
+  <head>
+    ...
+    <script src="lib/angular/angular.js"></script>
+    <script src="js/controller.js"></script>
+  </head>
+  <body ng-app="mastersProjectApp">
+    <header></header>
+    
+    <section ng-controller="ProjectCtrl">
+      <ul>
+        <li ng-repeat="student in students">
+          {{student.name}} : {{student.phone}}
+        </li>
+      </ul>
+    </section>
+    
+    <footer></footer>
+  </body>
+</html>
