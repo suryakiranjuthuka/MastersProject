@@ -1,131 +1,131 @@
 <div id="gradStudentsContainer">
-    
-    
-    <div id="sideNavContainer">
-        <div id="sideNav">
-            <h4>In Page Navigation</h4>
-            <ul>
-                <a href="#GSSH2" class="scroller-link"><li>> Graduate Students Supervised</li></a>
-                <ul class="subUL">
-                    <a href="#GSSH31" class="scroller-link"><li>Master's Thesis</li></a>
-                    <a href="#GSSH32" class="scroller-link"><li>Master's Project</li>
-                    <a href="#GSSH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
-                </ul>
-                <a href="#CPSH2" class="scroller-link"><li>> Capstone Project Supervised</li></a>
-                <a href="#GSCH2" class="scroller-link"><li>> Member of Committees</li></a>
-                <ul class="subUL">
-                    <a href="#GSCH31" class="scroller-link"><li>Master's Thesis</li></a>
-                    <a href="#GSCH32" class="scroller-link"><li>Master's Project</li></a>
-                    <a href="#GSCH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
-                </ul>
-            </ul>
-        </div>
+
+
+  <div id="sideNavContainer">
+    <div id="sideNav">
+      <h4>In Page Navigation</h4>
+      <ul>
+        <a href="#GSSH2" class="scroller-link"><li>> Graduate Students Supervised</li></a>
+        <ul class="subUL">
+          <a href="#GSSH31" class="scroller-link"><li>Master's Thesis</li></a>
+          <a href="#GSSH32" class="scroller-link"><li>Master's Project</li>
+          <a href="#GSSH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
+        </ul>
+        <a href="#CPSH2" class="scroller-link"><li>> Capstone Project Supervised</li></a>
+        <a href="#GSCH2" class="scroller-link"><li>> Member of Committees</li></a>
+        <ul class="subUL">
+          <a href="#GSCH31" class="scroller-link"><li>Master's Thesis</li></a>
+          <a href="#GSCH32" class="scroller-link"><li>Master's Project</li></a>
+          <a href="#GSCH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
+        </ul>
+      </ul>
     </div>
-        
-        
-    <div id="gradStudentsContent">
-        <h2 id="GSSH2">Graduate Students Supervised</h2>
-        <div id="GSSContainer">
+  </div>
 
-            <h3 id="GSSH31">Master's Thesis</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersThesisUnder', 'GSSH31', 'Masters Thesis', 'Add Thesis')" class="material-icons create">add_box</i>
-            <div class="GSSH31">
-              <div class="each" ng-repeat="gradStudent in gradStudents.mastersThesisUnder">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'mastersThesisUnder', 'GSSH31', 'Masters Thesis', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
 
-            <h3 id="GSSH32">Master's Project</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersProjectUnder', 'GSSH32', 'Masters Project', 'Add Project')" class="material-icons create">add_box</i>
-            <div class="GSSH32">
-              <div class="each" ng-repeat="gradStudent in gradStudents.mastersProjectUnder">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'mastersProjectUnder', 'GSSH32', 'Masters Project', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
+  <div id="gradStudentsContent">
+    <h2 id="GSSH2">Graduate Students Supervised</h2>
+    <div id="GSSContainer">
 
-            <h3 id="GSSH33">Ph.D. Dissertation</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'phdDissertationUnder', 'GSSH33', 'Ph.D. Dissertation', 'Add Dissertation')" class="material-icons create">add_box</i>
-            <div class="GSSH33">
-              <div class="each" ng-repeat="gradStudent in gradStudents.phdDissertationUnder">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'phdDissertationUnder', 'GSSH33', 'Ph.D. Dissertation', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
-
+      <h3 id="GSSH31">Master's Thesis</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersThesisUnder', 'GSSH31', 'Masters Thesis', 'Add Thesis')" class="material-icons create">add_box</i>
+      <div class="GSSH31">
+        <div class="each" ng-repeat="gradStudent in gradStudents.mastersThesisUnder">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'mastersThesisUnder', 'GSSH31', 'Masters Thesis', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
         </div>
+      </div>
 
-
-
-
-        <h2 id="CPSH2">Capstone Project Supervised</h2>
-        <div id="CPSContainer">
-            <h3>Add Capstone Project Supervised</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'capstoneProjectSupervised', 'CPSH2', 'Capstone Project Supervised', 'Add Supervisioned Project')" class="material-icons create">add_box</i>
-            <div class="CPSH2">
-              <div class="each" ng-repeat="gradStudent in gradStudents.capstoneProjectSupervised">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'capstoneProjectSupervised', 'CPSH2', 'Capstone Project Supervised', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
+      <h3 id="GSSH32">Master's Project</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersProjectUnder', 'GSSH32', 'Masters Project', 'Add Project')" class="material-icons create">add_box</i>
+      <div class="GSSH32">
+        <div class="each" ng-repeat="gradStudent in gradStudents.mastersProjectUnder">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'mastersProjectUnder', 'GSSH32', 'Masters Project', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
         </div>
+      </div>
 
-
-
-
-        <h2 id="GSCH2">Member of Thesis/Project Committees</h2>
-        <div id="GSCContainer">
-
-            <h3 id="GSCH31">Master's Thesis</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersThesisCommittee', 'GSCH31', 'Masters Thesis', 'Add Thesis')" class="material-icons create">add_box</i>
-            <div class="GSCH31">
-              <div class="each" ng-repeat="gradStudent in gradStudents.mastersThesisCommittee">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'mastersThesisCommittee', 'GSCH31', 'Masters Thesis', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
-
-            <h3 id="GSCH32">Master's Project</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersProjectCommittee', 'GSCH32', 'Masters Project', 'Add Project')" class="material-icons create">add_box</i>
-            <div class="GSCH32">
-              <div class="each" ng-repeat="gradStudent in gradStudents.mastersProjectCommittee">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'mastersProjectCommittee', 'GSCH32', 'Masters Project', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
-
-            <h3 id="GSCH33">Ph.D. Dissertation</h3>
-            <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'phdDissertationCommittee', 'GSCH33', 'Ph.D. Dissertation', 'Add Dissertation')" class="material-icons create">add_box</i>
-            <div class="GSCH33">
-              <div class="each" ng-repeat="gradStudent in gradStudents.phdDissertationCommittee">
-                <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
-                <div ng-show="login == true" class="editDelete">
-                  <i ng-click="editOldRG($event, 'phdDissertationCommittee', 'GSCH33', 'Ph.D. Dissertation', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
-                  <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
-                </div>
-              </div>
-            </div>
-
+      <h3 id="GSSH33">Ph.D. Dissertation</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'phdDissertationUnder', 'GSSH33', 'Ph.D. Dissertation', 'Add Dissertation')" class="material-icons create">add_box</i>
+      <div class="GSSH33">
+        <div class="each" ng-repeat="gradStudent in gradStudents.phdDissertationUnder">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'phdDissertationUnder', 'GSSH33', 'Ph.D. Dissertation', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
         </div>
+      </div>
+
     </div>
-    
+
+
+
+
+    <h2 id="CPSH2">Capstone Project Supervised</h2>
+    <div id="CPSContainer">
+      <h3>Add Capstone Project Supervised</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'capstoneProjectSupervised', 'CPSH2', 'Capstone Project Supervised', 'Add Supervisioned Project')" class="material-icons create">add_box</i>
+      <div class="CPSH2">
+        <div class="each" ng-repeat="gradStudent in gradStudents.capstoneProjectSupervised">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'capstoneProjectSupervised', 'CPSH2', 'Capstone Project Supervised', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <h2 id="GSCH2">Member of Thesis/Project Committees</h2>
+    <div id="GSCContainer">
+
+      <h3 id="GSCH31">Master's Thesis</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersThesisCommittee', 'GSCH31', 'Masters Thesis', 'Add Thesis')" class="material-icons create">add_box</i>
+      <div class="GSCH31">
+        <div class="each" ng-repeat="gradStudent in gradStudents.mastersThesisCommittee">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'mastersThesisCommittee', 'GSCH31', 'Masters Thesis', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="GSCH32">Master's Project</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'mastersProjectCommittee', 'GSCH32', 'Masters Project', 'Add Project')" class="material-icons create">add_box</i>
+      <div class="GSCH32">
+        <div class="each" ng-repeat="gradStudent in gradStudents.mastersProjectCommittee">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'mastersProjectCommittee', 'GSCH32', 'Masters Project', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
+        </div>
+      </div>
+
+      <h3 id="GSCH33">Ph.D. Dissertation</h3>
+      <i ng-show="login == true" ng-click="gradStudents.createNew($event, 'phdDissertationCommittee', 'GSCH33', 'Ph.D. Dissertation', 'Add Dissertation')" class="material-icons create">add_box</i>
+      <div class="GSCH33">
+        <div class="each" ng-repeat="gradStudent in gradStudents.phdDissertationCommittee">
+          <li class="umdCard" ng-bind-html="gradStudent._source.point"></li>
+          <div ng-show="login == true" class="editDelete">
+            <i ng-click="editOldRG($event, 'phdDissertationCommittee', 'GSCH33', 'Ph.D. Dissertation', 'Edit Data', gradStudent._id)" class="material-icons edit">edit</i>
+            <i ng-click="gradStudents.delete(gradStudent._id, gradStudent._type); gradStudents.removeElement($event)" class="material-icons delete">delete</i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>

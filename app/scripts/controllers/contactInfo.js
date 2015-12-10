@@ -1,6 +1,5 @@
-
 'use strict';
-        
+
 //// Set the Current Page to Active Nav
 //$( "#mainTabs" ).attr( "md-selected", 4 );
 
@@ -11,8 +10,8 @@
  * # ContactInfoCtrl
  * Controller of the cselApp
  */
-angular.module('cselApp')
-  .controller('ContactInfoCtrl', function () {
+angular.module( 'cselApp' )
+  .controller( 'ContactInfoCtrl', function() {
     var contactInfo = this;
     //Get the json data from the service($http)
     // GetJsonDataService.get().then(function(data) {
@@ -22,4 +21,4 @@ angular.module('cselApp')
     // });
 
 
-  });
+  } );
