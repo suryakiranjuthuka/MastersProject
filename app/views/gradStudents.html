@@ -1,81 +1,81 @@
 <div id="gradStudentsContainer">
-    
-    
-    <div id="sideNavContainer">
-        <div id="sideNav">
-            <h4>In Page Navigation</h4>
-            <ul>
-                <a href="#GSSH2" class="scroller-link"><li>> Graduate Students Supervised</li></a>
-                <ul class="subUL">
-                    <a href="#GSSH31" class="scroller-link"><li>Master's Thesis</li></a>
-                    <a href="#GSSH32" class="scroller-link"><li>Master's Project</li>
+
+
+  <div id="sideNavContainer">
+    <div id="sideNav">
+      <h4>In Page Navigation</h4>
+      <ul>
+        <a href="#GSSH2" class="scroller-link"><li>> Graduate Students Supervised</li></a>
+        <ul class="subUL">
+          <a href="#GSSH31" class="scroller-link"><li>Master's Thesis</li></a>
+          <a href="#GSSH32" class="scroller-link"><li>Master's Project</li>
                     <a href="#GSSH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
-                </ul>
-                <a href="#CPSH2" class="scroller-link"><li>> Capstone Project Supervised</li></a>
-                <a href="#GSCH2" class="scroller-link"><li>> Member of Committees</li></a>
-                <ul class="subUL">
-                    <a href="#GSCH31" class="scroller-link"><li>Master's Thesis</li></a>
-                    <a href="#GSCH32" class="scroller-link"><li>Master's Project</li></a>
-                    <a href="#GSCH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
-                </ul>
-            </ul>
-        </div>
+        </ul>
+        <a href="#CPSH2" class="scroller-link"><li>> Capstone Project Supervised</li></a>
+        <a href="#GSCH2" class="scroller-link"><li>> Member of Committees</li></a>
+        <ul class="subUL">
+          <a href="#GSCH31" class="scroller-link"><li>Master's Thesis</li></a>
+          <a href="#GSCH32" class="scroller-link"><li>Master's Project</li></a>
+          <a href="#GSCH33" class="scroller-link"><li>Ph.D. Dissertation</li></a>
+        </ul>
+      </ul>
     </div>
-        
-        
-    <div id="gradStudentsContent">
-        <h2 id="GSSH2">Graduate Students Supervised</h2>
-        <div id="GSSContainer">
-
-            <h3 id="GSSH31">Master's Thesis</h3>
-            <div ng-repeat="gradStudent in gradStudents.mastersThesisUnder">
-              <li class="mastersThesis" ng-bind-html="gradStudent.point"></li>
-            </div>
-
-            <h3 id="GSSH32">Master's Project</h3>
-            <div ng-repeat="gradStudent in gradStudents.mastersProjectUnder">
-              <li class="mastersProject" ng-bind-html="gradStudent.point"></li>
-            </div>
-
-            <h3 id="GSSH33">Ph.D. Dissertation</h3>
-            <div ng-repeat="gradStudent in gradStudents.phdDissertationUnder">
-              <li class="phdDissertation" ng-bind-html="gradStudent.point"></li>
-            </div>
-
-        </div>
+  </div>
 
 
+  <div id="gradStudentsContent">
+    <h2 id="GSSH2">Graduate Students Supervised</h2>
+    <div id="GSSContainer">
 
+      <h3 id="GSSH31">Master's Thesis</h3>
+      <div ng-repeat="gradStudent in gradStudents.mastersThesisUnder">
+        <li class="mastersThesis" ng-bind-html="gradStudent.point"></li>
+      </div>
 
-        <h2 id="CPSH2">Capstone Project Supervised</h2>
-        <div id="CPSContainer">
-            <div ng-repeat="gradStudent in gradStudents.capstoneProjectSupervised">
-              <li class="CPS" ng-bind-html="gradStudent.point"></li>
-            </div>
-        </div>
+      <h3 id="GSSH32">Master's Project</h3>
+      <div ng-repeat="gradStudent in gradStudents.mastersProjectUnder">
+        <li class="mastersProject" ng-bind-html="gradStudent.point"></li>
+      </div>
 
+      <h3 id="GSSH33">Ph.D. Dissertation</h3>
+      <div ng-repeat="gradStudent in gradStudents.phdDissertationUnder">
+        <li class="phdDissertation" ng-bind-html="gradStudent.point"></li>
+      </div>
 
-
-
-        <h2 id="GSCH2">Member of Thesis/Project Committees</h2>
-        <div id="GSCContainer">
-
-            <h3 id="GSCH31">Master's Thesis</h3>
-            <div ng-repeat="gradStudent in gradStudents.mastersThesisCommittee">
-              <li class="mastersThesis" ng-bind-html="gradStudent.point"></li>
-            </div>
-
-            <h3 id="GSCH32">Master's Project</h3>
-            <div ng-repeat="gradStudent in gradStudents.mastersProjectCommittee">
-              <li class="mastersProject" ng-bind-html="gradStudent.point"></li>
-            </div>
-
-            <h3 id="GSCH33">Ph.D. Dissertation</h3>
-            <div ng-repeat="gradStudent in gradStudents.phdDissertationCommittee">
-              <li class="phdDissertation" ng-bind-html="gradStudent.point"></li>
-            </div>
-
-        </div>
     </div>
-    
+
+
+
+
+    <h2 id="CPSH2">Capstone Project Supervised</h2>
+    <div id="CPSContainer">
+      <div ng-repeat="gradStudent in gradStudents.capstoneProjectSupervised">
+        <li class="CPS" ng-bind-html="gradStudent.point"></li>
+      </div>
+    </div>
+
+
+
+
+    <h2 id="GSCH2">Member of Thesis/Project Committees</h2>
+    <div id="GSCContainer">
+
+      <h3 id="GSCH31">Master's Thesis</h3>
+      <div ng-repeat="gradStudent in gradStudents.mastersThesisCommittee">
+        <li class="mastersThesis" ng-bind-html="gradStudent.point"></li>
+      </div>
+
+      <h3 id="GSCH32">Master's Project</h3>
+      <div ng-repeat="gradStudent in gradStudents.mastersProjectCommittee">
+        <li class="mastersProject" ng-bind-html="gradStudent.point"></li>
+      </div>
+
+      <h3 id="GSCH33">Ph.D. Dissertation</h3>
+      <div ng-repeat="gradStudent in gradStudents.phdDissertationCommittee">
+        <li class="phdDissertation" ng-bind-html="gradStudent.point"></li>
+      </div>
+
+    </div>
+  </div>
+
 </div>

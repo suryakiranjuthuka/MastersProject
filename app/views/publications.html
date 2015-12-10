@@ -1,110 +1,110 @@
 <div id="publicationsContainer">
 
-    <div id="sideNavContainer">
-        <div id="sideNav">
-            <h4>In Page Navigation</h4>
-            <ul>
-                <a href="#JPH2" class="scroller-link"><li>> Journal Papers (1990-2015)</li></a>
-                <ul class="subUL">
-                    <a href="#JPH31" class="scroller-link"><li>At UMASS DARTMOUTH (2009-2015)</li></a>
-                    <a href="#JPH32" class="scroller-link"><li>AT UMASS DARTMOUTH (2003-2009)</li>
+  <div id="sideNavContainer">
+    <div id="sideNav">
+      <h4>In Page Navigation</h4>
+      <ul>
+        <a href="#JPH2" class="scroller-link"><li>> Journal Papers (1990-2015)</li></a>
+        <ul class="subUL">
+          <a href="#JPH31" class="scroller-link"><li>At UMASS DARTMOUTH (2009-2015)</li></a>
+          <a href="#JPH32" class="scroller-link"><li>AT UMASS DARTMOUTH (2003-2009)</li>
                     <a href="#JPH33" class="scroller-link"><li>BEFORE JOINING UMASS DARTMOUTH (1991-2003)</li></a>
-                </ul>
-                    
-                <a href="#Bh2" class="scroller-link"><li>> Proceedings / Books / Special Issue Edited (2008-2015)</li></a>
-                <a href="#BCh2" class="scroller-link"><li>> Book Chapters (2008-2009)</li></a>
-                
-                <a href="#CPH2" class="scroller-link"><li>> Journal Papers (1990-2015)</li></a>
-                <ul class="subUL">
-                    <a href="#CPH31" class="scroller-link"><li>AT UMASS DARTMOUTH (2009-2015)</li></a>
-                    <a href="#CPH32" class="scroller-link"><li>AT UMASS DARTMOUTH (2003-2009)</li>
+        </ul>
+
+        <a href="#Bh2" class="scroller-link"><li>> Proceedings / Books / Special Issue Edited (2008-2015)</li></a>
+        <a href="#BCh2" class="scroller-link"><li>> Book Chapters (2008-2009)</li></a>
+
+        <a href="#CPH2" class="scroller-link"><li>> Journal Papers (1990-2015)</li></a>
+        <ul class="subUL">
+          <a href="#CPH31" class="scroller-link"><li>AT UMASS DARTMOUTH (2009-2015)</li></a>
+          <a href="#CPH32" class="scroller-link"><li>AT UMASS DARTMOUTH (2003-2009)</li>
                     <a href="#CPH33" class="scroller-link"><li>BEFORE JOINING UMASS DARTMOUTH (1991-2003)</li></a>
-                </ul>
-                    
-                <a href="#TRh2" class="scroller-link"><li>> Technical Reports (1999-2008)</li></a>
-                <a href="#TRPh2" class="scroller-link"><li>> Thesis and Project</li></a>
-            </ul>
-        </div>
+        </ul>
+
+        <a href="#TRh2" class="scroller-link"><li>> Technical Reports (1999-2008)</li></a>
+        <a href="#TRPh2" class="scroller-link"><li>> Thesis and Project</li></a>
+      </ul>
     </div>
-        
-        
-    <div id="publicationsContent">
-        <h2 id="JPH2">Journal Papers (1990-2015)</h2>
-        <div id="JPContainer">
-
-            <h3 id="JPH31">At UMass Dartmouth (2009-2015)</h3>
-            <div ng-repeat="publication in publications.umd09JP">
-              <li class="umdCard" ng-bind-html="publication.point"></li>
-            </div>
-
-            <h3 id="JPH32">At UMass Dartmouth (2003-2009)</h3>
-            <div ng-repeat="publication in publications.umd03JP">
-              <li class="umdCard" ng-bind-html="publication.point"></li>
-            </div>
-
-            <h3 id="JPH33">Before Joining UMass Dartmouth (1991-2003)</h3>
-            <div ng-repeat="publication in publications.umd91JP">
-              <li class="umdCard" ng-bind-html="publication.point"></li>
-            </div>
-
-        </div>
+  </div>
 
 
-        <h2 id="Bh2">Proceedings / Books / Special Issue Edited (2008-2015)</h2>
-        <div class="paddingTop" id="BContainer">
-            <div ng-repeat="publication in publications.books">
-              <li class="cardNoTitle" ng-bind-html="publication.point"></li>
-            </div>
-        </div>
+  <div id="publicationsContent">
+    <h2 id="JPH2">Journal Papers (1990-2015)</h2>
+    <div id="JPContainer">
 
+      <h3 id="JPH31">At UMass Dartmouth (2009-2015)</h3>
+      <div ng-repeat="publication in publications.umd09JP">
+        <li class="umdCard" ng-bind-html="publication.point"></li>
+      </div>
 
-        <h2 id="BCh2">Book Chapters (2008-2009)</h2>
-        <div class="paddingTop" id="BCContainer">
-            <div ng-repeat="publication in publications.bookChapters">
-              <li class="cardNoTitle" ng-bind-html="publication.point"></li>
-            </div>
-        </div>
+      <h3 id="JPH32">At UMass Dartmouth (2003-2009)</h3>
+      <div ng-repeat="publication in publications.umd03JP">
+        <li class="umdCard" ng-bind-html="publication.point"></li>
+      </div>
 
-        
-        
-        <h2 id="CPH2">Journal Papers (1990-2015)</h2>
-        <div id="CPContainer">
+      <h3 id="JPH33">Before Joining UMass Dartmouth (1991-2003)</h3>
+      <div ng-repeat="publication in publications.umd91JP">
+        <li class="umdCard" ng-bind-html="publication.point"></li>
+      </div>
 
-            <h3 id="CPH31">At UMass Dartmouth (2009-2015)</h3>
-            <div ng-repeat="publication in publications.umd09CP">
-              <li class="umdCard" ng-bind-html="publication.point"></li>
-            </div>
-
-            <h3 id="CPH32">At UMass Dartmouth (2003-2009)</h3>
-            <div ng-repeat="publication in publications.umd03CP">
-              <li class="umdCard" ng-bind-html="publication.point"></li>
-            </div>
-
-            <h3 id="CPH33">Before Joining UMass Dartmouth (1991-2003)</h3>
-            <div ng-repeat="publication in publications.umd91CP">
-              <li class="umdCard" ng-bind-html="publication.point"></li>
-            </div>
-
-        </div>
-
-
-        <h2 id="TRh2">Technical Reports (1999-2008)</h2>
-        <div class="paddingTop" id="TRContainer">
-            <div ng-repeat="publication in publications.techReports">
-              <li class="cardNoTitle" ng-bind-html="publication.point"></li>
-            </div>
-        </div>
-        
-        
-        <h2 id="TPh2">Thesis and Project</h2>
-        <div class="paddingTop" id="TPContainer">
-            <div ng-repeat="publication in publications.thesisProject">
-              <li class="cardNoTitle" ng-bind-html="publication.point"></li>
-            </div>
-        </div>
-
-        
-        
     </div>
-    
+
+
+    <h2 id="Bh2">Proceedings / Books / Special Issue Edited (2008-2015)</h2>
+    <div class="paddingTop" id="BContainer">
+      <div ng-repeat="publication in publications.books">
+        <li class="cardNoTitle" ng-bind-html="publication.point"></li>
+      </div>
+    </div>
+
+
+    <h2 id="BCh2">Book Chapters (2008-2009)</h2>
+    <div class="paddingTop" id="BCContainer">
+      <div ng-repeat="publication in publications.bookChapters">
+        <li class="cardNoTitle" ng-bind-html="publication.point"></li>
+      </div>
+    </div>
+
+
+
+    <h2 id="CPH2">Journal Papers (1990-2015)</h2>
+    <div id="CPContainer">
+
+      <h3 id="CPH31">At UMass Dartmouth (2009-2015)</h3>
+      <div ng-repeat="publication in publications.umd09CP">
+        <li class="umdCard" ng-bind-html="publication.point"></li>
+      </div>
+
+      <h3 id="CPH32">At UMass Dartmouth (2003-2009)</h3>
+      <div ng-repeat="publication in publications.umd03CP">
+        <li class="umdCard" ng-bind-html="publication.point"></li>
+      </div>
+
+      <h3 id="CPH33">Before Joining UMass Dartmouth (1991-2003)</h3>
+      <div ng-repeat="publication in publications.umd91CP">
+        <li class="umdCard" ng-bind-html="publication.point"></li>
+      </div>
+
+    </div>
+
+
+    <h2 id="TRh2">Technical Reports (1999-2008)</h2>
+    <div class="paddingTop" id="TRContainer">
+      <div ng-repeat="publication in publications.techReports">
+        <li class="cardNoTitle" ng-bind-html="publication.point"></li>
+      </div>
+    </div>
+
+
+    <h2 id="TPh2">Thesis and Project</h2>
+    <div class="paddingTop" id="TPContainer">
+      <div ng-repeat="publication in publications.thesisProject">
+        <li class="cardNoTitle" ng-bind-html="publication.point"></li>
+      </div>
+    </div>
+
+
+
+  </div>
+
 </div>
